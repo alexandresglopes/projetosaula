@@ -19,13 +19,14 @@
             <div style="margin-bottom: 25px;">
                 <label
                     style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">NOME</label>
-                <input type="text" id="nome" placeholder="Digite o nome completo" class="inputnome">
+                <input type="text" id="nome" placeholder="Digite o nome completo" class="inputnome" required>
             </div>
 
             <div style="margin-bottom: 25px;">
                 <label
                     style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">SEXO</label>
                 <select id="sexo" class="select" required>
+                    <option value="" disabled selected hidden>--selecione--</option>
                     <option value="1">HOMEM</option>
                     <option value="2">FEMININO</option>
                 </select>
@@ -34,13 +35,14 @@
             <div style="margin-bottom: 25px;">
                 <label
                     style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">PESO:</label>
-                <input type="number" id="peso" placeholder="Peso (kg)" class="inputvalor">
+                <input type="number" id="peso" placeholder="Peso (kg)" class="inputvalor" required>
             </div>
 
             <div style="margin-bottom: 25px;">
                 <label
-                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">ALTUR:</label>
-                <input type="number" id="altura" placeholder="Altura (ex: 1.75)" class="inputvalor">
+                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">ALTURA:</label>
+                <input type="text" id="altura" placeholder="Altura (ex: 1.75)" class="inputvalor" maxlength="4"
+                    oninput="mascaraAltura(this)">
             </div>
 
             <div style="text-align: right; border-top: 1px solid #eee; padding-top: 20px;">
@@ -68,42 +70,69 @@
             document.getElementById('res').innerHTML = '';
 
         }
-        function calcularIMC() {
-            let nome = document.getElementById('nome').value;
-            let sexo = document.getElementById('sexo').value;
-            let p = Number(document.getElementById('peso').value);
-            let a = Number(document.getElementById('altura').value);
-            nome = nome.toUpperCase();            
 
-            let imc = p / (a * a);
-            let status = '';
-            let i = imc.toFixed(2);
-            let s = '';
-
-            if (sexo == 1) {
-                s = 'MASCULINO';
-                if (i < 18.5) {
-                    status = 'Magreza';
-                } else if (i > 18.5 && i <= 24.9) {
-                    status = 'Eutrofia';
-                } else if (i >= 25 && i <= 29.9) {
-                    status = 'Pré-obesidade';
-                } else if (i >= 30 && i <= 34.9) {
-                    status = 'Obesidade grau I';
-                } else if (i >= 35 && i <= 35.9) {
-                    status = 'Obesidade grau II';
-                } else if (i >= 40) {
-                    status = 'Obesidade grau III';
-                }
-            } else {
-                s = 'FEMININO';
+        function mascaraAltura(i) {
+            let v = i.value.replace(/\D/g, "");
+            if (v.length > 1) {
+                v = v.substring(0, 1) + "." + v.substring(1);
             }
+            i.value = v;
+        }
 
+        function calcularIMC() {
+            let sexo = document.getElementById('sexo').value;
 
+            if (sexo != '') {
 
+                let nome = document.getElementById('nome').value;
 
+                let p = Number(document.getElementById('peso').value);
+                let a = Number(document.getElementById('altura').value);
+                nome = nome.toUpperCase();
 
-            document.getElementById('res').innerHTML = `
+                let imc = p / (a * a);
+                let status = '';
+                let i = imc.toFixed(2);
+                let s = '';
+
+                switch (sexo) {
+                    case '1':
+                        s = 'MASCULINO';
+                        if (i < 18.5) {
+                            status = 'Magreza';
+                        } else if (i > 18.5 && i <= 24.9) {
+                            status = 'Eutrofia';
+                        } else if (i >= 25 && i <= 29.9) {
+                            status = 'Pré-obesidade';
+                        } else if (i >= 30 && i <= 34.9) {
+                            status = 'Obesidade grau I';
+                        } else if (i >= 35 && i <= 35.9) {
+                            status = 'Obesidade grau II';
+                        } else if (i >= 40) {
+                            status = 'Obesidade grau III';
+                        }
+                        break;
+                    case '2':
+                        s = 'FEMININO';
+                        if (i < 18.5) {
+                            status = 'Magreza';
+                        } else if (i > 18.5 && i <= 24.9) {
+                            status = 'Eutrofia';
+                        } else if (i >= 25 && i <= 29.9) {
+                            status = 'Pré-obesidade';
+                        } else if (i >= 30 && i <= 34.9) {
+                            status = 'Obesidade grau I';
+                        } else if (i >= 35 && i <= 35.9) {
+                            status = 'Obesidade grau II';
+                        } else if (i >= 40) {
+                            status = 'Obesidade grau III';
+                        }
+                        break;
+                    default:
+                        alert('sexo não encontrado')
+                }
+
+                document.getElementById('res').innerHTML = `
                 <div class="divresult">
                     
                     <div style="margin-bottom: 10px;">
@@ -129,6 +158,11 @@
                                                                             
                 </div>
             `;
+
+            } else {
+                alert("SELECIONE UM SEXO");
+            }
+
         }
     </script>
 </body>
