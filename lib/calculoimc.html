@@ -12,7 +12,12 @@
         <div style="background-color: #4a69bd; color: white; padding: 20px; text-align: center;">
             <h2 style="margin: 0; font-size: 20px; letter-spacing: 1px;">Calculo IMC</h2>
         </div>
-        <div style="padding: 30px;">          
+        <div style="padding: 30px;"> 
+            
+            <div style="margin-bottom: 25px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">NOME</label>
+                <input type="text" id="nome" placeholder="Digite o nome completo" class="inputnome">
+            </div>
 
             <div style="margin-bottom: 25px;">
                 <label
@@ -45,23 +50,54 @@
 
          function limpar() {
             
+            document.getElementById('nome').value = "";
             document.getElementById('peso').value = "";
             document.getElementById('altura').value = "";
             document.getElementById('res').innerHTML = '';
 
         }
         function calcularIMC() {
+            let nome = Number(document.getElementById('nome').value);
             let p = Number(document.getElementById('peso').value);
             let a = Number(document.getElementById('altura').value);
             
             let imc = p / (a * a);
+            let status='';
+            let i = imc.toFixed(2);
+
+            if(i < 18.5){
+                status='Magreza';
+            }else if(i > 18.5 && i <= 24.9){
+                status='Eutrofia';
+            }else if(i >= 25 && i <= 29.9){
+                status='Pré-obesidade';
+            }else if(i >= 30 && i <= 34.9){
+                status='Obesidade grau I';
+            }else if(i >= 35 && i <= 35.9){
+                status='Obesidade grau II';
+            }else if(i >= 40){
+                status='Obesidade grau III';
+            }
            
             document.getElementById('res').innerHTML = `
-                <div class="divresult">                                
+                <div class="divresult">
+                    
                     <div style="margin-bottom: 10px;">
-                        <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Seu IMC é:</span><br>
-                        <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${imc.toFixed(2)}</span>
-                    </div>                                                        
+                        <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">IMC:</span><br>
+                        <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${nome}</span>
+                    </div>
+
+                    <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                        <div style="margin-bottom: 10px;">
+                            <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Seu IMC é:</span><br>
+                            <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${imc.toFixed(2)}</span>
+                        </div>
+                        
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Status: </small> <strong>${status}</strong>
+                        </div>                        
+                    </div> 
+                                                                            
                 </div>
             `;
         }
