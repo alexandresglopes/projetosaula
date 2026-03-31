@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario de Entrega</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+
+<body>
+    <div class="divPrincipal">
+        <div style="background-color: #4a69bd; color: white; padding: 20px; text-align: center;">
+            <h2 style="margin: 0; font-size: 20px; letter-spacing: 1px;">Horário de Entrega</h2>
+        </div>
+        <div style="padding: 30px;">
+            <div style="margin-bottom: 25px;">
+                <label
+                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">HORÁRIO
+                    DE ENTREGA:</label>
+                <select id="hora" class="select" required>
+                    <option value="" disabled selected hidden>--selecione--</option>
+                    <option value="0">00:00hs</option>
+                    <option value="1">01:00hs</option>
+                    <option value="2">02:00hs</option>
+                    <option value="3">03:00hs</option>
+                    <option value="4">04:00hs</option>
+                    <option value="5">05:00hs</option>
+                    <option value="6">06:00hs</option>
+                    <option value="7">07:00hs</option>
+                    <option value="8">08:00hs</option>
+                    <option value="9">09:00hs</option>
+                    <option value="10">10:00hs</option>
+                    <option value="11">11:00hs</option>
+                    <option value="12">12:00hs</option>
+                    <option value="13">13:00hs</option>
+                    <option value="14">14:00hs</option>
+                    <option value="15">15:00hs</option>
+                    <option value="16">16:00hs</option>
+                    <option value="17">17:00hs</option>
+                    <option value="18">18:00hs</option>
+                    <option value="19">19:00hs</option>
+                    <option value="20">20:00hs</option>
+                    <option value="21">21:00hs</option>
+                    <option value="22">22:00hs</option>
+                    <option value="23">23:00hs</option>
+                    <option value="24">24:00hs</option>
+                </select>
+            </div>
+
+            <div style="text-align: right; border-top: 1px solid #eee; padding-top: 20px;">
+                <button onclick="limpar()" class="botaolimpar">
+                    LIMPAR
+                </button>
+                <button onclick="verificar()" class="botao">
+                    CALCULAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="res"></div>
+
+    <script>
+
+
+        function limpar() {
+
+            document.getElementById('res').innerHTML = '';
+
+        }
+
+        function formatarReal(valor) {
+
+            let numero = parseFloat(valor);
+
+            if (isNaN(numero)) return "0,00";
+
+            return numero.toLocaleString('pt-BR', {
+                minimumFractionDigits: 2,
+            });
+        }
+
+        function verificar() {
+
+            let hora = Number(document.getElementById('hora').value);
+            let status = '';
+
+            console.log(hora)
+
+            if (hora >= 6 && hora <= 11) {
+                status = 'Entrega pela manhã';
+                console.log('6-11')
+            } else if (hora >= 12 && hora <= 17) {
+                status = 'Entrega pela tarde';
+            } else if (hora >= 18 && hora <= 23) {
+                status = 'Entrega pela noite';
+            } else {
+                status = 'Horário inválido';
+            }
+
+            document.getElementById('res').innerHTML = `
+                <div class="divresult">                    
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Status:</span><br>
+                        <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${status}</span>
+                    </div>                                                           
+                </div>
+            `;
+
+        }
+
+
+    </script>
+</body>
+
+</html>
