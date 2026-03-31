@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cálculo de Vendas</title>
+    <title>Caixa de Vendas</title>
     <link rel="stylesheet" href="../css/estilo.css">
 </head>
 
 <body>
     <div class="divPrincipal">
         <div style="background-color: #4a69bd; color: white; padding: 20px; text-align: center;">
-            <h2 style="margin: 0; font-size: 20px; letter-spacing: 1px;">Calculo de Vendas</h2>
+            <h2 style="margin: 0; font-size: 20px; letter-spacing: 1px;">Caixa de Vendas</h2>
         </div>
         <div style="padding: 30px;">
             <div style="margin-bottom: 25px;">
@@ -36,31 +36,9 @@
                     style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">FORMA PAGAMENTO:</label>
                 <select id="pg" class="select" required>
                     <option value="" disabled selected hidden>--selecione--</option>
-                    <option value="0">00:00hs</option>
-                    <option value="1">01:00hs</option>
-                    <option value="2">02:00hs</option>
-                    <option value="3">03:00hs</option>
-                    <option value="4">04:00hs</option>
-                    <option value="5">05:00hs</option>
-                    <option value="6">06:00hs</option>
-                    <option value="7">07:00hs</option>
-                    <option value="8">08:00hs</option>
-                    <option value="9">09:00hs</option>
-                    <option value="10">10:00hs</option>
-                    <option value="11">11:00hs</option>
-                    <option value="12">12:00hs</option>
-                    <option value="13">13:00hs</option>
-                    <option value="14">14:00hs</option>
-                    <option value="15">15:00hs</option>
-                    <option value="16">16:00hs</option>
-                    <option value="17">17:00hs</option>
-                    <option value="18">18:00hs</option>
-                    <option value="19">19:00hs</option>
-                    <option value="20">20:00hs</option>
-                    <option value="21">21:00hs</option>
-                    <option value="22">22:00hs</option>
-                    <option value="23">23:00hs</option>
-                    <option value="24">24:00hs</option>
+                    <option value="1">PIX</option>
+                    <option value="2">DINHEIRO</option>
+                    <option value="3">CARTÃO</option>                    
                 </select>
             </div>
 
@@ -71,7 +49,7 @@
                     LIMPAR
                 </button>
                 <button onclick="verificar()" class="botao">
-                    CALCULAR
+                    VERIFICAR
                 </button>
             </div>
         </div>
@@ -84,9 +62,10 @@
 
         function limpar() {
 
-            document.getElementById('nome').value = "";
-            document.getElementById('fixo').value = "";
-            document.getElementById('vendas').value = "";
+            document.getElementById('produto').value = "";
+            document.getElementById('valor').value = "";
+            document.getElementById('quantidade').value = "";
+            document.getElementById('pg').selectedIndex = 0;
             document.getElementById('res').innerHTML = '';
 
         }
@@ -103,41 +82,65 @@
         }
 
         function verificar() {
-            let nome = document.getElementById('nome').value;
-            let salarioFixo = Number(document.getElementById('fixo').value);
-            let totalVendas = Number(document.getElementById('vendas').value);
-            nome = nome.toUpperCase();
+            let produto = document.getElementById('produto').value;
+            let valor = Number(document.getElementById('valor').value);
+            let quantidade = Number(document.getElementById('quantidade').value);
+            let pg = Number(document.getElementById('pg').value);
+            produto = produto.toUpperCase();
+            let valorsoma = valor * quantidade;            
+            let valorfinal=0;
+            let desconto=0;
+            let tipopg='';
+            if(pg==1){
+                desconto = valorsoma * 0.10;
+                valorfinal = valorsoma - desconto;
+                tipopg='PIX';
+            }else if(pg==2){
+                desconto = valorsoma * 0.10;
+                valorfinal = valorsoma - desconto;
+                tipopg='DINHEIRO';
+            }else if(pg==3){
+                desconto = 0;
+                valorfinal = valorsoma - desconto;
+                tipopg='CARTÃO';
+            }           
+            
 
-            let comissao = totalVendas * 0.10;
-            let salarioFinal = salarioFixo + comissao;
-
-            totalVendas = formatarReal(totalVendas);
-            salarioFixo = formatarReal(salarioFixo);
-            salarioFinal = formatarReal(salarioFinal);
-            comissao = formatarReal(comissao);
-
+            valor = formatarReal(valor);
+            valorfinal = formatarReal(valorfinal);
+            desconto = formatarReal(desconto);
+            valorsoma = formatarReal(valorsoma);
+            
             document.getElementById('res').innerHTML = `
                 <div class="divresult">                    
                     <div style="margin-bottom: 10px;">
-                        <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Relatório:</span><br>
-                        <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${nome}</span>
+                        <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Produto:</span><br>
+                        <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${produto}</span>
                     </div>
 
                     <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
                         <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Salário: R$</small> <strong>${salarioFixo}</strong>
+                            <small style="display: block; color: #999;">Valor Und: R$</small> <strong>${valor}</strong>
                         </div> 
                         
                         <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Valor de vendas R$</small> <strong>${totalVendas}</strong>
+                            <small style="display: block; color: #999;">Quantidade: </small> <strong>${quantidade}</strong>
                         </div>
 
                         <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Vaslor de comissão R$</small> <strong>${comissao}</strong>
+                            <small style="display: block; color: #999;">Valor subtotal: R$</small> <strong>${valorsoma}</strong>
                         </div>
 
                         <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Salário final R$</small> <strong>${salarioFinal}</strong>
+                            <small style="display: block; color: #999;">Valor desconto: R$</small> <strong>${desconto}</strong>
+                        </div>
+
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Valor total: R$</small> <strong>${valorfinal}</strong>
+                        </div>
+
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Tipo de pagamento: </small> <strong>${tipopg}</strong>
                         </div>
                     </div>                                        
                 </div>

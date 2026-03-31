@@ -22,12 +22,25 @@
             flex-direction: column;
             gap: 10px;
             transition: 0.3s;
-            position: relative;
-            z-index: 10;
+            position: fixed;
+            height: 100%;
+            z-index: 30;
+            left: 0;
         }
 
         #menu.retraido {
-            margin-left: -290px;
+            left: -290px;
+        }
+
+        #btn-fechar {
+            background: #444;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 4px;
+            align-self: flex-end;
+            margin-bottom: 10px;
         }
 
         nav a {
@@ -62,6 +75,8 @@
             flex-grow: 1;
             position: relative;
             background-color: #f4f4f4;
+            margin-left: 0;
+            width: 100%;
         }
 
         iframe {
@@ -81,40 +96,31 @@
             width: 100%;
             z-index: 5;
         }
-
-        @media (max-width: 768px) {
-            #menu {
-                position: absolute;
-                height: 100%;
-            }
-            #menu.retraido {
-                margin-left: -290px;
-            }
-            #menu.aberto {
-                margin-left: 0;
-            }
-        }
     </style>
 </head>
 <body ontouchstart="handleTouchStart(event)" ontouchmove="handleTouchMove(event)">
 
-    <button id="btn-toggle" onclick="toggleMenu()">☰</button>
+    <button id="btn-toggle" onclick="abrirMenu()">☰ Abrir Menu</button>
 
-    <div id="menu">
-        <h2 style="margin-top: 40px;">Menu</h2>
+    <div id="menu" class="retraido">
+        <button id="btn-fechar" onclick="fecharMenu()">✖ Fechar</button>
+        <h2 style="margin: 0;">Menu</h2>
         <nav>
             <a href="lib/calculovendas.html" target="conteudo" onclick="navegar()">Cálculo de Vendas</a>
+            <a href="lib/caixavendas.html" target="conteudo" onclick="navegar()">Caixa de Vendas</a>
             <a href="lib/calculoimc.html" target="conteudo" onclick="navegar()">Cálculo de IMC</a>
+            <a href="lib/acesso.html" target="conteudo" onclick="navegar()">Controle de Acesso</a>
+            <a href="lib/troco.html" target="conteudo" onclick="navegar()">Caixa Registradora</a>
+            <a href="lib/frete.html" target="conteudo" onclick="navegar()">Controle de Fretes</a>
             <a href="lib/mediaaluno.html" target="conteudo" onclick="navegar()">Média Aluno</a>
             <a href="lib/maioridade.html" target="conteudo" onclick="navegar()">Maioridade</a>
             <a href="lib/notaaluno.html" target="conteudo" onclick="navegar()">Nota Aluno</a>
-            <a href="lib/salarioprofessor.html" target="conteudo" onclick="navegar()">Salário Professor</a>
-            <a href="lib/troco.html" target="conteudo" onclick="navegar()">Caixa Registradora</a>
+            <a href="lib/salarioprofessor.html" target="conteudo" onclick="navegar()">Salário Professor</a>            
             <a href="lib/turnoentrega.html" target="conteudo" onclick="navegar()">Turno Entrega</a>            
         </nav>
     </div>
 
-    <main id="main-content">
+    <main id="main-content" onclick="fecharMenu()">
         <div id="welcome">
             <h1>Bem-vindo aos Projetos</h1>
             <p>Selecione um item no menu lateral para começar.</p>
@@ -127,28 +133,17 @@
         const welcome = document.getElementById('welcome');
         let xDown = null;
 
-        if (window.innerWidth <= 768) {
-            menu.classList.add('retraido');
+        function abrirMenu() {
+            menu.classList.remove('retraido');
         }
 
-        function toggleMenu() {
-            if (window.innerWidth <= 768) {
-                menu.classList.toggle('aberto');
-                menu.classList.remove('retraido');
-                if (!menu.classList.contains('aberto')) {
-                    menu.classList.add('retraido');
-                }
-            } else {
-                menu.classList.toggle('retraido');
-            }
+        function fecharMenu() {
+            menu.classList.add('retraido');
         }
 
         function navegar() {
             welcome.style.display = 'none';
-            if (window.innerWidth <= 768) {
-                menu.classList.remove('aberto');
-                menu.classList.add('retraido');
-            }
+            fecharMenu();
         }
 
         function handleTouchStart(evt) {
@@ -161,19 +156,9 @@
             let xDiff = xDown - xUp;
 
             if (xDiff < -50) { 
-                if (window.innerWidth <= 768) {
-                    menu.classList.add('aberto');
-                    menu.classList.remove('retraido');
-                } else {
-                    menu.classList.remove('retraido');
-                }
+                abrirMenu();
             } else if (xDiff > 50) {
-                if (window.innerWidth <= 768) {
-                    menu.classList.remove('aberto');
-                    menu.classList.add('retraido');
-                } else {
-                    menu.classList.add('retraido');
-                }
+                fecharMenu();
             }
             xDown = null;
         }

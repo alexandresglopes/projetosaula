@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Acesso</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+
+<body>
+
+    <div class="divPrincipal">
+        <div style="background-color: #4a69bd; color: white; padding: 20px; text-align: center;">
+            <h2 style="margin: 0; font-size: 20px; letter-spacing: 1px;">Controle de acesso</h2>
+        </div>
+        <div style="padding: 30px;">
+            <div style="margin-bottom: 25px;">
+                <label
+                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">NOME</label>
+                <input type="text" id="usuario" placeholder="Digite o nome completo" class="inputnome">
+            </div>            
+
+            <div style="margin-bottom: 25px;">
+                <label
+                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">NIVEL
+                    DE ACESSO:</label>
+                <select id="perfil" class="select" required>
+                    <option value="" disabled selected hidden>---selecione---</option>
+                    <option value="admin">Administrador</option>
+                    <option value="professor">Professor</option>
+                    <option value="aluno">Aluno</option>
+                    <option value="visitante">Outro</option>
+                </select>
+            </div>
+
+            <div style="text-align: right; border-top: 1px solid #eee; padding-top: 20px;">
+                <button onclick="limpar()" class="botaolimpar">
+                    LIMPAR
+                </button>
+                <button onclick="verificar()" class="botao">
+                    VERIFICAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="res"></div>
+
+    <script>
+
+        function limpar() {
+
+            document.getElementById('usuario').value = "";            
+            document.getElementById('perfil').selectedIndex = 0;
+            document.getElementById('res').innerHTML = '';
+
+        }
+
+        function verificar() {
+            let nome = document.getElementById('usuario').value;
+            let perfil = document.getElementById('perfil').value;
+            nome = nome.toUpperCase();
+
+            let mensagem = "";           
+
+            switch (perfil) {
+                case "admin":
+                    mensagem = "Acesso total ao sistema";
+                    break;
+                case "professor":
+                    mensagem = "Acesso ao lançamento de notas";
+                    break;
+                case "aluno":
+                    mensagem = "Acesso ao boletim";
+                    break;
+                default:
+                    mensagem = "Perfil inválido ou sem permissões";
+            }
+
+             document.getElementById('res').innerHTML = `
+                <div class="divresult">                    
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Usuário:</span><br>
+                        <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${nome}</span>
+                    </div>
+
+                    <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Nivel de acesso:</small> <strong>${mensagem}</strong>
+                        </div>                       
+                    </div>                                        
+                </div>
+            `;
+        }
+    </script>
+
+</body>
+
+</html>

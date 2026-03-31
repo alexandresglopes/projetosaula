@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Fretes</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+
+<body>
+    <div class="divPrincipal">
+        <div style="background-color: #4a69bd; color: white; padding: 20px; text-align: center;">
+            <h2 style="margin: 0; font-size: 20px; letter-spacing: 1px;">Controle de Fretes</h2>
+        </div>
+        <div style="padding: 30px;">
+            <div style="margin-bottom: 25px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">NOME
+                    CLIENTE</label>
+                <input type="text" id="nome" placeholder="Digite o nome completo" class="inputnome">
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <label
+                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">PRODUTO</label>
+                <input type="text" id="produto" placeholder="Digite o produto" class="inputnome">
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <label
+                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">VALOR
+                    (R$):</label>
+                <input type="number" id="valor" placeholder="0.0" class="inputvalor">
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <label
+                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">QUANTIDADE:</label>
+                <input type="number" id="quantidade" placeholder="0.0" class="inputvalor">
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <label
+                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">SELECIONE
+                    SEU ESTADO:</label>
+                <select id="estado" class="select" required>
+                    <option value="" disabled selected hidden>--selecione--</option>
+                    <option value="1">RIO DE JANEIRO</option>
+                    <option value="2">MINAS GERAIS</option>
+                    <option value="3">ESPIRITO SANTO</option>
+                    <option value="4">SÃO PAULO</option>
+                    <option value="5">OUTROS</option>
+                </select>
+            </div>
+
+
+
+            <div style="text-align: right; border-top: 1px solid #eee; padding-top: 20px;">
+                <button onclick="limpar()" class="botaolimpar">
+                    LIMPAR
+                </button>
+                <button onclick="verificar()" class="botao">
+                    VERIFICAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="res"></div>
+
+    <script>
+
+
+        function limpar() {
+
+            document.getElementById('nome').value = "";
+            document.getElementById('produto').value = "";
+            document.getElementById('valor').value = "";
+            document.getElementById('quantidade').value = "";
+            document.getElementById('estado').selectedIndex = 0;
+            document.getElementById('res').innerHTML = '';
+
+        }
+
+        function formatarReal(valor) {
+
+            let numero = parseFloat(valor);
+
+            if (isNaN(numero)) return "0,00";
+
+            return numero.toLocaleString('pt-BR', {
+                minimumFractionDigits: 2,
+            });
+        }
+
+        function verificar() {
+            let nome = document.getElementById('nome').value.toUpperCase();
+            let produto = document.getElementById('produto').value.toUpperCase();
+            let valor = Number(document.getElementById('valor').value);
+            let quantidade = Number(document.getElementById('quantidade').value);
+            let estado = document.getElementById('estado').value;
+
+            let valorsoma = valor * quantidade;
+            let valorfrete = 0;
+            let mensagem = "";
+            let nomeEstado = "";
+
+            const estadosNomes = {
+                "1": "RIO DE JANEIRO",
+                "2": "MINAS GERAIS",
+                "3": "ESPIRITO SANTO",
+                "4": "SÃO PAULO",
+                "5": "OUTROS"
+            };
+            nomeEstado = estadosNomes[estado] || "";
+
+            if ((valorsoma >= 200 && (estado == "1" || estado == "4")) ||
+                (valorsoma >= 300 && (estado == "2" || estado == "3")) ||
+                (valorsoma >= 1000)) {
+
+                mensagem = "Frete grátis";
+                valorfrete = 0;
+            } else {
+                mensagem = "Frete pago";
+                valorfrete = valorsoma * 0.08;
+            }
+
+            let valorfinal = valorsoma + valorfrete;
+
+            document.getElementById('res').innerHTML = `
+                <div class="divresult">                    
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Cliente: </span><br>
+                        <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${nome}</span>
+                    </div>
+                    <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Produto: </small> <strong>${produto}</strong>
+                        </div>
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Valor und.: R$</small> <strong>${formatarReal(valor)}</strong>
+                        </div>
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Quantidade: R$</small> <strong>${quantidade}</strong>
+                        </div>
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Subtotal: R$</small> <strong>${formatarReal(valorsoma)}</strong>
+                        </div>                        
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Total: R$</small> <strong>${formatarReal(valorfinal)}</strong>
+                        </div>
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Frete: R$</small> <strong>${formatarReal(valorfrete)}</strong>
+                        </div>
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Status: </small> <strong>${mensagem}</strong>
+                        </div>
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Estado: </small> <strong>${nomeEstado}</strong>
+                        </div>
+                    </div>                                        
+                </div>
+            `;
+        }
+
+
+    </script>
+</body>
+
+</html>
