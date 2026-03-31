@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora</title>
+</head>
+<body>
+    <h1>Calculadora:</h1>
+    <input type="number" id="n1"> 
+    <select id="tipo">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="/">/</option>
+        <option value="*">*</option>
+    </select>
+    <input type="number" id="n2">
+    <button onclick="somar()">Calcular Soma</button>
+    <div id="res"></div>
+
+    <script>
+        window.alert("Seja Bem Vindo(a) a Calculadora!");
+        function somar() {            
+            let num1 = Number(document.getElementById('n1').value);
+            let num2 = Number(document.getElementById('n2').value);
+            let sinal = document.getElementById('tipo').value;
+            let resultado=null;
+            console.log(sinal)
+            if(sinal == '+'){
+                resultado = num1 + num2;
+            }else if(sinal == '-'){
+                resultado = num1 - num2;
+            }else if(sinal == '/'){
+                resultado = num1 / num2;
+            }else if(sinal == '*'){
+                resultado = num1 * num2;
+            }
+            
+            document.getElementById('res').innerText = "Resultado: " + resultado;
+            //document.write("Resultado: " + resultado);
+        }
+    </script>
+</body>
+</html>

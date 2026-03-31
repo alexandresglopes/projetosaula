@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média do Aluno</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+
+<body>
+    <div class="divPrincipal">
+        <div style="background-color: #4a69bd; color: white; padding: 20px; text-align: center;">
+            <h2 style="margin: 0; font-size: 20px; letter-spacing: 1px;">Cálculo de Média Escolar</h2>
+        </div>
+
+        <div style="padding: 30px;">
+            <div style="margin-bottom: 25px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">NOME
+                    DO ALUNO</label>
+                <input type="text" id="aluno" placeholder="Digite o nome completo" class="inputnome">
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+                <thead>
+                    <tr>
+                        <th class="inputnotas">
+                            NOTA 1</th>
+                        <th class="inputnotas">
+                            NOTA 2</th>
+                        <th class="inputnotas">
+                            NOTA 3</th>
+                        <th class="inputnotas">
+                            NOTA 4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 5px;">
+                            <input type="number" id="n1" placeholder="0.0" class="inputvalor">
+                        </td>
+                        <td style="padding: 5px;">
+                            <input type="number" id="n2" placeholder="0.0" class="inputvalor">
+                        </td>
+                        <td style="padding: 5px;">
+                            <input type="number" id="n3" placeholder="0.0" class="inputvalor">
+                        </td>
+                        <td style="padding: 5px;">
+                            <input type="number" id="n4" placeholder="0.0" class="inputvalor">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="text-align: right; border-top: 1px solid #eee; padding-top: 20px;">
+                <button onclick="limpar()" class="botaolimpar">
+                    LIMPAR
+                </button>
+
+                <button onclick="verificar()" class="botao">
+                    CALCULAR MÉDIA
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="res"></div>
+
+    <script>
+
+        function limpar() {
+            document.getElementById('aluno').value = "";
+            document.getElementById('n1').value = "";
+            document.getElementById('n2').value = "";
+            document.getElementById('n3').value = "";
+            document.getElementById('n4').value = "";
+            document.getElementById('res').innerHTML = '';
+
+        }
+
+        function verificar() {
+            let nome = document.getElementById('aluno').value;
+            let nota1 = Number(document.getElementById('n1').value);
+            let nota2 = Number(document.getElementById('n2').value);
+            let nota3 = Number(document.getElementById('n3').value);
+            let nota4 = Number(document.getElementById('n4').value);
+            let soma = nota1 + nota2 + nota3 + nota4;
+            let media = (nota1 + nota2 + nota3 + nota4) / 4;
+            let status = media >= 6 ? "<span style='font-size:30px;color:green;color:white;'>Aprovado</span>" : "<span style='font-size:30px;color:red;color:white;'>Reprovado</span>";
+            let corStatus = (media >= 6) ? "#27ae60" : "#e74c3c";
+            nome = nome.toUpperCase();            
+            
+            document.getElementById('res').innerHTML = `
+                <div style="margin-top: 20px; padding: 20px; border-radius: 10px; background-color: #f8f9fa; border-left: 5px solid ${corStatus}; font-family: sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                    
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Relatório do Aluno</span><br>
+                        <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${nome}</span>
+                    </div>
+
+                    <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Nota 1</small> <strong>${nota1}</strong>
+                        </div>
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Nota 2</small> <strong>${nota2}</strong>
+                        </div>
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Nota 3</small> <strong>${nota3}</strong>
+                        </div>
+                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                            <small style="display: block; color: #999;">Nota 4</small> <strong>${nota4}</strong>
+                        </div>
+                    </div>
+
+                    <div style="border-top: 1px dashed #ddd; pt-3; display: flex; justify-content: space-between; align-items: center; padding-top: 15px;">
+                        <div style="color: #555;">
+                            Soma Total: <strong style="color: #2c3e50;">${soma}</strong> | 
+                            Média: <strong style="font-size: 18px; color: #2c3e50;">${media.toFixed(1)}</strong>
+                        </div>
+                        <div style="background-color: ${corStatus}; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; text-transform: uppercase;">
+                            ${status}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+        }
+    </script>
+</body>
+
+</html>

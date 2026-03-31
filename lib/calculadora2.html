@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora</title>
+</head>
+<body>
+    <input type="number" id="v1">
+    <input type="number" id="v2">
+    <button onclick="calcular()">Calcular Tudo</button>
+    
+    <div id="soma"></div>
+    <div id="sub"></div>
+    <div id="mult"></div>
+    <div id="divi"></div>
+
+    <script>
+        function calcular() {
+            let a = Number(document.getElementById('v1').value);
+            let b = Number(document.getElementById('v2').value);
+            
+            document.getElementById('soma').innerText = "Soma: " + (a + b);
+            document.getElementById('sub').innerText = "Subtração: " + (a - b);
+            document.getElementById('mult').innerText = "Multiplicação: " + (a * b);
+            document.getElementById('divi').innerText = "Divisão: " + (a / b);
+        }
+    </script>
+</body>
+</html>
