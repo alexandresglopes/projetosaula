@@ -57,9 +57,10 @@
 
         }
         function calcularIMC() {
-            let nome = Number(document.getElementById('nome').value);
+            let nome = document.getElementById('nome').value;
             let p = Number(document.getElementById('peso').value);
             let a = Number(document.getElementById('altura').value);
+            nome = nome.toUpperCase();
             
             let imc = p / (a * a);
             let status='';
@@ -88,7 +89,7 @@
                     </div>
 
                     <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
-                        <div style="margin-bottom: 10px;">
+                        <div sstyle="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
                             <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Seu IMC é:</span><br>
                             <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${imc.toFixed(2)}</span>
                         </div>
