@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
     <title>Sistema de Exercícios</title>
     <style>
         body {
@@ -96,6 +97,10 @@
             width: 100%;
             z-index: 5;
         }
+        .img{
+            width: 200px;
+            border-radius: 30px;
+        }
     </style>
 </head>
 <body ontouchstart="handleTouchStart(event)" ontouchmove="handleTouchMove(event)">
@@ -124,6 +129,7 @@
         <div id="welcome">
             <h1>Bem-vindo aos Projetos</h1>
             <p>Selecione um item no menu lateral para começar.</p>
+            <img src="img/logo.png" class="img">
         </div>
         <iframe name="conteudo" id="frame"></iframe>
     </main>
