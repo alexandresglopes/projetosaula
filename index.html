@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
             height: 100vh;
             overflow: hidden;
         }
-        
+
         #menu {
             width: 250px;
             background-color: #333;
@@ -97,17 +98,26 @@
             width: 100%;
             z-index: 5;
         }
-        .img{
+
+        .img {
             width: 200px;
             border-radius: 30px;
         }
-        .imgmenu{
+
+        .imgmenu {
             align-self: flex-start;
             width: 60px;
             border-radius: 5px;
         }
+
+        ul {
+            list-style-type: none;            
+            padding: 0;            
+            margin: 0;            
+        }
     </style>
 </head>
+
 <body ontouchstart="handleTouchStart(event)" ontouchmove="handleTouchMove(event)">
 
     <button id="btn-toggle" onclick="abrirMenu()">☰ Abrir Menu</button>
@@ -117,17 +127,41 @@
         <button id="btn-fechar" onclick="fecharMenu()">✖ Fechar</button>
         <h2 style="margin: 0;">Menu</h2>
         <nav>
-            <a href="lib/calculovendas.html" target="conteudo" onclick="navegar()">Cálculo de Vendas</a>
-            <a href="lib/caixavendas.html" target="conteudo" onclick="navegar()">Caixa de Vendas</a>
-            <a href="lib/calculoimc.html" target="conteudo" onclick="navegar()">Cálculo de IMC</a>
-            <a href="lib/acesso.html" target="conteudo" onclick="navegar()">Controle de Acesso</a>
-            <a href="lib/troco.html" target="conteudo" onclick="navegar()">Caixa Registradora</a>
-            <a href="lib/frete.html" target="conteudo" onclick="navegar()">Controle de Fretes</a>
-            <a href="lib/mediaaluno.html" target="conteudo" onclick="navegar()">Média Aluno</a>
-            <a href="lib/maioridade.html" target="conteudo" onclick="navegar()">Maioridade</a>
-            <a href="lib/notaaluno.html" target="conteudo" onclick="navegar()">Nota Aluno</a>
-            <a href="lib/salarioprofessor.html" target="conteudo" onclick="navegar()">Salário Professor</a>            
-            <a href="lib/turnoentrega.html" target="conteudo" onclick="navegar()">Turno Entrega</a>            
+            <ul>
+                <li>
+                    <a href="lib/calculovendas.html" target="conteudo" onclick="navegar()">Cálculo de Vendas</a>
+                </li>
+                <li>
+                    <a href="lib/caixavendas.html" target="conteudo" onclick="navegar()">Caixa de Vendas</a>
+                </li>
+                <li>
+                    <a href="lib/calculoimc.html" target="conteudo" onclick="navegar()">Cálculo de IMC</a>
+                </li>
+                <li>
+                    <a href="lib/acesso.html" target="conteudo" onclick="navegar()">Controle de Acesso</a>
+                </li>
+                <li>
+                    <a href="lib/troco.html" target="conteudo" onclick="navegar()">Caixa Registradora</a>
+                </li>
+                <li>
+                    <a href="lib/frete.html" target="conteudo" onclick="navegar()">Controle de Fretes</a>
+                </li>
+                <li>
+                    <a href="lib/mediaaluno.html" target="conteudo" onclick="navegar()">Média Aluno</a>
+                </li>
+                <li>
+                    <a href="lib/maioridade.html" target="conteudo" onclick="navegar()">Maioridade</a>
+                </li>
+                <li>
+                    <a href="lib/notaaluno.html" target="conteudo" onclick="navegar()">Nota Aluno</a>
+                </li>
+                <li>
+                    <a href="lib/salarioprofessor.html" target="conteudo" onclick="navegar()">Salário Professor</a>
+                </li>
+                <li>
+                    <a href="lib/turnoentrega.html" target="conteudo" onclick="navegar()">Turno Entrega</a>
+                </li>
+            </ul>
         </nav>
     </div>
 
@@ -167,7 +201,7 @@
             let xUp = evt.touches[0].clientX;
             let xDiff = xDown - xUp;
 
-            if (xDiff < -50) { 
+            if (xDiff < -50) {
                 abrirMenu();
             } else if (xDiff > 50) {
                 fecharMenu();
@@ -176,4 +210,5 @@
         }
     </script>
 </body>
+
 </html>
