@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div id="res"></div>    
+    <div id="res"></div>
 
     <script>
 
@@ -58,33 +58,30 @@
 
         function verificar() {
             let hora = Number(document.getElementById('hora').value);
+            
+            let status = '';
 
-            if (hora != '') {
-                let status = '';
-
-                if (hora < 0 || hora > 23) {
-                    status = 'Horário Inválido';
-                } else if (hora >= 6 && hora <= 11) {
-                    status = 'Entrega pela manhã';
-                } else if (hora >= 12 && hora <= 17) {
-                    status = 'Entrega pela tarde';
-                } else if (hora >= 18 && hora <= 23) {
-                    status = 'Entrega pela noite';
-                } else {
-                    status = 'Entrega na madrugada';
-                }
-
-                document.getElementById('res').innerHTML = `
-                    <div class="divresult">                    
-                        <div style="margin-bottom: 10px;">
-                            <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Status:</span><br>
-                            <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${status}</span>
-                        </div>                                                                         
-                    </div>
-                `;
-            }else {
-                alert("PREENCHA OS DADOS!");
+            if (hora < 0 || hora > 23) {
+                status = 'Horário Inválido';
+            } else if (hora >= 6 && hora <= 11) {
+                status = 'Entrega pela manhã';
+            } else if (hora >= 12 && hora <= 17) {
+                status = 'Entrega pela tarde';
+            } else if (hora >= 18 && hora <= 23) {
+                status = 'Entrega pela noite';
+            } else {
+                status = 'Entrega na madrugada';
             }
+
+            document.getElementById('res').innerHTML = `
+                <div class="divresult">                    
+                    <div style="margin-bottom: 10px;">
+                        <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Status:</span><br>
+                        <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${status}</span>
+                    </div>                                                                         
+                </div>
+            `;
+
 
         }
 
