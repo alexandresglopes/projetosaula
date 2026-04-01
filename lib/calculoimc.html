@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cálculo IMC</title>
     <link rel="stylesheet" href="../css/estilo.css">
+    <script src="../js/script.js"></script>
 </head>
 
 <body>
@@ -58,7 +59,7 @@
         </div>
     </div>
 
-    <div id="res"></div>
+    <div id="res"></div>    
 
     <script>
 
@@ -69,25 +70,16 @@
             document.getElementById('altura').value = "";
             document.getElementById('res').innerHTML = '';
 
-        }
-
-        function mascaraAltura(i) {
-            let v = i.value.replace(/\D/g, "");
-            if (v.length > 1) {
-                v = v.substring(0, 1) + "." + v.substring(1);
-            }
-            i.value = v;
-        }
+        }        
 
         function calcularIMC() {
             let sexo = document.getElementById('sexo').value;
+            let nome = document.getElementById('nome').value;
+            let p = Number(document.getElementById('peso').value);
+            let a = Number(document.getElementById('altura').value);
 
-            if (sexo != '') {
+            if (sexo != '' && nome != '' && p != '' && a != '') {
 
-                let nome = document.getElementById('nome').value;
-
-                let p = Number(document.getElementById('peso').value);
-                let a = Number(document.getElementById('altura').value);
                 nome = nome.toUpperCase();
 
                 let imc = p / (a * a);
@@ -160,7 +152,7 @@
             `;
 
             } else {
-                alert("SELECIONE UM SEXO");
+                alert("PREENCHA OS DADOS!");
             }
 
         }

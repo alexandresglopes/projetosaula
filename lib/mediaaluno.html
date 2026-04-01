@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Média do Aluno</title>
     <link rel="stylesheet" href="../css/estilo.css">
+    <script src="../js/script.js"></script>
 </head>
 
 <body>
@@ -64,7 +65,7 @@
         </div>
     </div>
 
-    <div id="res"></div>
+    <div id="res"></div>    
 
     <script>
 
@@ -84,47 +85,55 @@
             let nota2 = Number(document.getElementById('n2').value);
             let nota3 = Number(document.getElementById('n3').value);
             let nota4 = Number(document.getElementById('n4').value);
-            let soma = nota1 + nota2 + nota3 + nota4;
-            let media = (nota1 + nota2 + nota3 + nota4) / 4;
-            let status = media >= 6 ? "<span style='font-size:30px;color:green;color:white;'>Aprovado</span>" : "<span style='font-size:30px;color:red;color:white;'>Reprovado</span>";
-            let corStatus = (media >= 6) ? "#27ae60" : "#e74c3c";
-            nome = nome.toUpperCase();            
-            
-            document.getElementById('res').innerHTML = `
-                <div style="margin-top: 20px; padding: 20px; border-radius: 10px; background-color: #f8f9fa; border-left: 5px solid ${corStatus}; font-family: sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-                    
-                    <div style="margin-bottom: 10px;">
-                        <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Relatório do Aluno</span><br>
-                        <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${nome}</span>
-                    </div>
 
-                    <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
-                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Nota 1</small> <strong>${nota1}</strong>
-                        </div>
-                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Nota 2</small> <strong>${nota2}</strong>
-                        </div>
-                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Nota 3</small> <strong>${nota3}</strong>
-                        </div>
-                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Nota 4</small> <strong>${nota4}</strong>
-                        </div>
-                    </div>
+            if (nome != '' && nota1 != '' && nota2 != '' && nota3 != '' && nota4 != '') {
+                let soma = nota1 + nota2 + nota3 + nota4;
+                let media = (nota1 + nota2 + nota3 + nota4) / 4;
+                let status = media >= 6 ? "<span style='font-size:30px;color:green;color:white;'>Aprovado</span>" : "<span style='font-size:30px;color:red;color:white;'>Reprovado</span>";
+                let corStatus = (media >= 6) ? "#27ae60" : "#e74c3c";
+                nome = nome.toUpperCase();
 
-                    <div style="border-top: 1px dashed #ddd; pt-3; display: flex; justify-content: space-between; align-items: center; padding-top: 15px;">
-                        <div style="color: #555;">
-                            Soma Total: <strong style="color: #2c3e50;">${soma}</strong> | 
-                            Média: <strong style="font-size: 18px; color: #2c3e50;">${media.toFixed(1)}</strong>
+                document.getElementById('res').innerHTML = `
+                    <div style="margin-top: 20px; padding: 20px; border-radius: 10px; background-color: #f8f9fa; border-left: 5px solid ${corStatus}; font-family: sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                        
+                        <div style="margin-bottom: 10px;">
+                            <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Relatório do Aluno</span><br>
+                            <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${nome}</span>
                         </div>
-                        <div style="background-color: ${corStatus}; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; text-transform: uppercase;">
-                            ${status}
+
+                        <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                            <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                                <small style="display: block; color: #999;">Nota 1</small> <strong>${nota1}</strong>
+                            </div>
+                            <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                                <small style="display: block; color: #999;">Nota 2</small> <strong>${nota2}</strong>
+                            </div>
+                            <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                                <small style="display: block; color: #999;">Nota 3</small> <strong>${nota3}</strong>
+                            </div>
+                            <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                                <small style="display: block; color: #999;">Nota 4</small> <strong>${nota4}</strong>
+                            </div>
+                        </div>
+
+                        <div style="border-top: 1px dashed #ddd; pt-3; display: flex; justify-content: space-between; align-items: center; padding-top: 15px;">
+                            <div style="color: #555;">
+                                Soma Total: <strong style="color: #2c3e50;">${soma}</strong> | 
+                                Média: <strong style="font-size: 18px; color: #2c3e50;">${media.toFixed(1)}</strong>
+                            </div>
+                            <div style="background-color: ${corStatus}; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; text-transform: uppercase;">
+                                ${status}
+                            </div>
                         </div>
                     </div>
-                </div>
-            `;
-            
+                `;
+
+            }else {
+                alert("PREENCHA OS DADOS!");
+            }
+
+
+
         }
     </script>
 </body>

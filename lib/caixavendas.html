@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caixa de Vendas</title>
     <link rel="stylesheet" href="../css/estilo.css">
+    <script src="../js/script.js"></script>
 </head>
 
 <body>
@@ -15,14 +16,16 @@
         </div>
         <div style="padding: 30px;">
             <div style="margin-bottom: 25px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">PRODUTO</label>
+                <label
+                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">PRODUTO</label>
                 <input type="text" id="produto" placeholder="Digite o nome completo" class="inputnome">
             </div>
 
             <div style="margin-bottom: 25px;">
                 <label
-                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">VALOR (R$):</label>
-                <input type="number" id="valor" placeholder="0.0" class="inputvalor">
+                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">VALOR
+                    (R$):</label>
+                <input type="text" id="valor" oninput="mascaraMoeda(this)" placeholder="0.0" class="inputvalor">
             </div>
 
             <div style="margin-bottom: 25px;">
@@ -33,16 +36,17 @@
 
             <div style="margin-bottom: 25px;">
                 <label
-                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">FORMA PAGAMENTO:</label>
+                    style="display: block; margin-bottom: 8px; font-weight: bold; color: #555; font-size: 14px;">FORMA
+                    PAGAMENTO:</label>
                 <select id="pg" class="select" required>
                     <option value="" disabled selected hidden>--selecione--</option>
                     <option value="1">PIX</option>
                     <option value="2">DINHEIRO</option>
-                    <option value="3">CARTÃO</option>                    
+                    <option value="3">CARTÃO</option>
                 </select>
             </div>
 
-            
+
 
             <div style="text-align: right; border-top: 1px solid #eee; padding-top: 20px;">
                 <button onclick="limpar()" class="botaolimpar">
@@ -55,11 +59,10 @@
         </div>
     </div>
 
-    <div id="res"></div>
+    <div id="res"></div>    
 
     <script>
-
-
+        
         function limpar() {
 
             document.getElementById('produto').value = "";
@@ -68,83 +71,81 @@
             document.getElementById('pg').selectedIndex = 0;
             document.getElementById('res').innerHTML = '';
 
-        }
-
-        function formatarReal(valor) {
-
-            let numero = parseFloat(valor);
-
-            if (isNaN(numero)) return "0,00";
-
-            return numero.toLocaleString('pt-BR', {
-                minimumFractionDigits: 2,
-            });
-        }
+        }        
 
         function verificar() {
+
             let produto = document.getElementById('produto').value;
-            let valor = Number(document.getElementById('valor').value);
+            let valorCampo = document.getElementById('valor').value;            
             let quantidade = Number(document.getElementById('quantidade').value);
             let pg = Number(document.getElementById('pg').value);
-            produto = produto.toUpperCase();
-            let valorsoma = valor * quantidade;            
-            let valorfinal=0;
-            let desconto=0;
-            let tipopg='';
-            if(pg==1){
-                desconto = valorsoma * 0.10;
-                valorfinal = valorsoma - desconto;
-                tipopg='PIX';
-            }else if(pg==2){
-                desconto = valorsoma * 0.10;
-                valorfinal = valorsoma - desconto;
-                tipopg='DINHEIRO';
-            }else if(pg==3){
-                desconto = 0;
-                valorfinal = valorsoma - desconto;
-                tipopg='CARTÃO';
-            }           
-            
 
-            valor = formatarReal(valor);
-            valorfinal = formatarReal(valorfinal);
-            desconto = formatarReal(desconto);
-            valorsoma = formatarReal(valorsoma);
-            
-            document.getElementById('res').innerHTML = `
-                <div class="divresult">                    
-                    <div style="margin-bottom: 10px;">
-                        <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Produto:</span><br>
-                        <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${produto}</span>
+            if (produto != '' && valorCampo != '' && quantidade != '') {
+                produto = produto.toUpperCase();
+                let valor = Number(valorCampo.replace(/\./g, "").replace(",", ".")); 
+                
+                let valorsoma = valor * quantidade;
+                let valorfinal = 0;
+                let desconto = 0;
+                let tipopg = '';
+                if (pg == 1) {
+                    desconto = valorsoma * 0.10;
+                    valorfinal = valorsoma - desconto;
+                    tipopg = 'PIX';
+                } else if (pg == 2) {
+                    desconto = valorsoma * 0.10;
+                    valorfinal = valorsoma - desconto;
+                    tipopg = 'DINHEIRO';
+                } else if (pg == 3) {
+                    desconto = 0;
+                    valorfinal = valorsoma - desconto;
+                    tipopg = 'CARTÃO';
+                }
+
+
+                valor = formatarReal(valor);
+                valorfinal = formatarReal(valorfinal);
+                desconto = formatarReal(desconto);
+                valorsoma = formatarReal(valorsoma);
+
+                document.getElementById('res').innerHTML = `
+                    <div class="divresult">                    
+                        <div style="margin-bottom: 10px;">
+                            <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Produto:</span><br>
+                            <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${produto}</span>
+                        </div>
+
+                        <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                            <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                                <small style="display: block; color: #999;">Valor Und: R$</small> <strong>${valor}</strong>
+                            </div> 
+                            
+                            <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                                <small style="display: block; color: #999;">Quantidade: </small> <strong>${quantidade}</strong>
+                            </div>
+
+                            <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                                <small style="display: block; color: #999;">Valor subtotal: R$</small> <strong>${valorsoma}</strong>
+                            </div>
+
+                            <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                                <small style="display: block; color: #999;">Valor desconto: R$</small> <strong>${desconto}</strong>
+                            </div>
+
+                            <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                                <small style="display: block; color: #999;">Valor total: R$</small> <strong>${valorfinal}</strong>
+                            </div>
+
+                            <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                                <small style="display: block; color: #999;">Tipo de pagamento: </small> <strong>${tipopg}</strong>
+                            </div>
+                        </div>                                        
                     </div>
+                `;
+            }else {
+                alert("PREENCHA OS DADOS!");
+            }
 
-                    <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
-                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Valor Und: R$</small> <strong>${valor}</strong>
-                        </div> 
-                        
-                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Quantidade: </small> <strong>${quantidade}</strong>
-                        </div>
-
-                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Valor subtotal: R$</small> <strong>${valorsoma}</strong>
-                        </div>
-
-                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Valor desconto: R$</small> <strong>${desconto}</strong>
-                        </div>
-
-                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Valor total: R$</small> <strong>${valorfinal}</strong>
-                        </div>
-
-                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Tipo de pagamento: </small> <strong>${tipopg}</strong>
-                        </div>
-                    </div>                                        
-                </div>
-            `;
 
         }
 

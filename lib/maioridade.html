@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maioridade</title>
     <link rel="stylesheet" href="../css/estilo.css">
+    <script src="../js/script.js"></script>
 </head>
 
 <body>
@@ -37,7 +38,7 @@
         </div>
     </div>
 
-    <div id="res"></div>
+    <div id="res"></div>    
 
     <script>
 
@@ -48,53 +49,50 @@
             document.getElementById('idade').value = "";
             document.getElementById('res').innerHTML = '';
 
-        }
-
-        function formatarReal(valor) {
-
-            let numero = parseFloat(valor);
-
-            if (isNaN(numero)) return "0,00";
-
-            return numero.toLocaleString('pt-BR', {
-                minimumFractionDigits: 2,
-            });
-        }
+        }        
 
         function verificar() {
             let nome = document.getElementById('nome').value;
             let idade = Number(document.getElementById('idade').value);
             let status = '';
 
-            nome = nome.toUpperCase();
-            console.log(idade)
+            if (nome != '' && idade != '') {
 
-            if (idade >= 18) {
-                status = 'Inscrição permitida';
-            } else if (idade >= 0 && idade < 18) {
-                status = 'Inscrição não permitida para menores de idade';
-            } else {
-                status = 'Idade inválida';
+                nome = nome.toUpperCase();
+                console.log(idade)
+
+                if (idade >= 18) {
+                    status = 'Inscrição permitida';
+                } else if (idade >= 0 && idade < 18) {
+                    status = 'Inscrição não permitida para menores de idade';
+                } else {
+                    status = 'Idade inválida';
+                }
+
+                document.getElementById('res').innerHTML = `
+                    <div class="divresult">                    
+                        <div style="margin-bottom: 10px;">
+                            <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Relatório:</span><br>
+                            <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${nome}</span>
+                        </div>
+
+                        <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                            <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                                <small style="display: block; color: #999;">Idade: </small> <strong>${idade}</strong>
+                            </div> 
+                            
+                            <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
+                                <small style="display: block; color: #999;">Resultado</small> <strong>${status}</strong>
+                            </div>                        
+                        </div>                                        
+                    </div>
+                `;
+
+            }else {
+                alert("PREENCHA OS DADOS!");
             }
 
-            document.getElementById('res').innerHTML = `
-                <div class="divresult">                    
-                    <div style="margin-bottom: 10px;">
-                        <span style="color: #777; font-size: 12px; font-weight: bold; text-transform: uppercase;">Relatório:</span><br>
-                        <span style="font-size: 22px; font-weight: bold; color: #2c3e50;">${nome}</span>
-                    </div>
 
-                    <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
-                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Idade: </small> <strong>${idade}</strong>
-                        </div> 
-                        
-                        <div style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #eee; min-width: 80px; text-align: center;">
-                            <small style="display: block; color: #999;">Resultado</small> <strong>${status}</strong>
-                        </div>                        
-                    </div>                                        
-                </div>
-            `;
 
         }
 
