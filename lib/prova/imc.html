@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imc</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+    <div class="top">
+        <br>
+        <a href="home.html" class="voltar">Voltar</a>
+    </div>
+
+    <div class="divprincipal">
+        <div class="divtitulo">
+            <label class="labeltitulo">IMC</label>
+        </div>
+        <div class="divform">
+            <div class="divinput">
+                <label class="label">nome</label>
+                <input type="text" class="input" name="nome" id="nome">
+            </div>
+            <table class="table" border="1">
+                <tr style="background-color: black;color: white;font-weight: bold;">
+                    <th>Peso</th>
+                    <th>Altura</th>
+                </tr>
+                <tr>
+                    <td class="td">
+                        <div class="divinput">
+                            <label class="label">Peso</label>
+                            <input type="number" class="input" name="peso" id="peso">
+                        </div>
+                    </td>
+                    <td class="td">
+                        <div class="divinput">
+                            <label class="label">Altura</label>
+                            <input type="number" class="input" name="altura" id="altura">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+
+            <div class="divinput">
+                <input type="button" class="button" value="VERIFICAR" onclick="verificar()">
+            </div>
+        </div>
+    </div>
+
+    <div class="res" id="res"></div>
+
+    <script>
+        function verificar() {
+            let nome = document.getElementById('nome').value;
+            nome = nome.toUpperCase();
+            let peso = Number(document.getElementById('peso').value);
+            let altura = Number(document.getElementById('altura').value);
+            let mensagem = '';
+            cor = 'green';
+            cortexto='black';
+
+            if (nome && peso && altura) {
+                let imc = peso / (altura * altura);
+
+                if (imc < 18.5) {
+                    mensagem = 'ABAIXO DO PESO';
+                    cor='blue';
+                    cortexto='white';
+                } else if (imc >= 18.5 && imc <= 24.9) {
+                    mensagem = 'NORMAL';
+                    cor='green';
+                    cortexto='white';
+                } else if (imc >= 25.0 && imc <= 29.9) {
+                    mensagem = 'SOBREPESO';
+                    cor='yellow';
+                    cortexto='black';
+                } else if (imc >= 30.0 && imc <= 39.9) {
+                    mensagem = 'OBESIDADE';
+                    cor='orange';
+                    cortexto='white';
+                } else if (imc >= 40.0) {
+                    mensagem = 'OBESIDADE SEVERA';
+                    cor='red';
+                    cortexto='white';
+                }
+
+                document.getElementById('res').innerHTML = `
+            <div class='divres' style='border-left: 5px solid ${cor};'>
+                <div style='margin-bottom:20px;'>
+                    <label style='font-size:30px;font-weight: bold;'>IMC</label>
+                </div>
+                <div>
+                    <label class='nome'>Aluno: ${nome}</label>
+                </div>
+                <hr><br>
+                <label class='labelmensagem' style='background: ${cor};color: ${cortexto};padding:10px;border-radius:5px;'>${mensagem}</label>
+            </div>
+            `;
+
+            }else{
+                alert('Preencha os dados!');
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

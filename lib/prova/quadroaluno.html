@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadro Alunos</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+
+    <div class="top">
+        <br>
+        <a href="home.html" class="voltar">Voltar</a>
+    </div>
+
+    <div class="divprincipalquadroalunos">
+        <div class="divtitulo">
+            <label class="labeltitulo">Quadro Alunos</label>
+        </div>
+        <div class="divform">           
+            <div>
+                <table class="table" border="1">
+                    <tr style="background-color: black;color: white;font-weight: bold;">
+                        <th>Nome</th>
+                        <th>Sexo</th>
+                        <th>Idade</th>
+                        <th>Endereço</th>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <input type="text" class="input" name="nome1" id="nome1">
+                        </td>
+                        <td class="td">
+                            <select class="select" name="sexo1" id="sexo1">
+                                <option value="">---selecione---</option>
+                                <option value="1">Homem</option>
+                                <option value="2">Mulher</option>                                
+                            </select>
+                        </td>
+                        <td class="td">
+                            <input type="number" class="inputqtd" name="idade1" id="idade1">
+                        </td>
+                        <td class="td">
+                            <input type="text" class="input" name="end1" id="end1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <input type="text" class="input" name="nome2" id="nome2">
+                        </td>
+                        <td class="td">
+                            <select class="select" name="sexo2" id="sexo2">
+                                <option value="">---selecione---</option>
+                                <option value="1">Homem</option>
+                                <option value="2">Mulher</option>                                
+                            </select>
+                        </td>
+                        <td class="td">
+                            <input type="number" class="inputqtd" name="idade2" id="idade2">
+                        </td>
+                        <td class="td">
+                            <input type="text" class="input" name="end2" id="end2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <input type="text" class="input" name="nome3" id="nome3">
+                        </td>
+                        <td class="td">
+                            <select class="select" name="sexo3" id="sexo3">
+                                <option value="">---selecione---</option>
+                                <option value="1">Homem</option>
+                                <option value="2">Mulher</option>                                
+                            </select>
+                        </td>
+                        <td class="td">
+                            <input type="number" class="inputqtd" name="idade3" id="idade3">
+                        </td>
+                        <td class="td">
+                            <input type="text" class="input" name="end3" id="end3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <input type="text" class="input" name="nome4" id="nome4">
+                        </td>
+                        <td class="td">
+                            <select class="select" name="sexo4" id="sexo4">
+                                <option value="">---selecione---</option>
+                                <option value="1">Homem</option>
+                                <option value="2">Mulher</option>                                
+                            </select>
+                        </td>
+                        <td class="td">
+                            <input type="number" class="inputqtd" name="idade4" id="idade4">
+                        </td>
+                        <td class="td">
+                            <input type="text" class="input" name="end4" id="end4">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <input type="text" class="input" name="nome5" id="nome5">
+                        </td>
+                        <td class="td">
+                            <select class="select" name="sexo5" id="sexo5">
+                                <option value="">---selecione---</option>
+                                <option value="1">Homem</option>
+                                <option value="2">Mulher</option>                                
+                            </select>
+                        </td>
+                        <td class="td">
+                            <input type="number" class="inputqtd" name="idade5" id="idade5">
+                        </td>
+                        <td class="td">
+                            <input type="text" class="input" name="end5" id="end5">
+                        </td>
+                    </tr>
+                    
+                  
+                </table>
+
+            </div>
+            <div class="divinput">
+                <input type="button" class="button" value="Registrar" onclick="registrar()">
+            </div>
+        </div>
+    </div>
+
+    <div class="res" id="res"></div>
+
+    <script>
+        function registrar() {
+            let nome1 = document.getElementById('nome1').value;
+            nome1 = nome1.toUpperCase();
+            let sexo1 =  Number(document.getElementById('sexo1').value);
+            let idade1 = Number(document.getElementById('idade1').value);
+            let end1 = document.getElementById('end1').value;
+
+            let nome2 = document.getElementById('nome2').value;
+            nome2 = nome2.toUpperCase();
+            let sexo2 =  Number(document.getElementById('sexo2').value);
+            let idade2 =  Number(document.getElementById('idade2').value);
+            let end2 = document.getElementById('end2').value;
+
+            let nome3 = document.getElementById('nome3').value;
+            nome3 = nome3.toUpperCase();
+            let sexo3 =  Number(document.getElementById('sexo3').value);
+            let idade3 =  Number(document.getElementById('idade3').value);
+            let end3 = document.getElementById('end3').value;
+
+            let nome4 = document.getElementById('nome4').value;
+            nome4 = nome4.toUpperCase();
+            let sexo4 =  Number(document.getElementById('sexo4').value);
+            let idade4 =  Number(document.getElementById('idade4').value);
+            let end4 = document.getElementById('end4').value;
+
+            let nome5 = document.getElementById('nome5').value;
+            nome5 = nome5.toUpperCase();
+            let sexo5 =  Number(document.getElementById('sexo5').value);
+            let idade5 =  Number(document.getElementById('idade5').value);
+            let end5 = document.getElementById('end5').value; 
+
+            let qtdh=0;
+            let qtdm=0;
+            let media=0;
+            let textsx1='';
+            let textsx2='';
+            let textsx3='';
+            let textsx4='';
+            let textsx5='';
+            
+            
+            
+            if(sexo1==1){ qtdh = qtdh + 1; textsx1='Homem'; }else{ qtdm = qtdm + 1; textsx1='Mulher';}
+            if(sexo2==1){ qtdh = qtdh + 1; textsx2='Homem'; }else{ qtdm = qtdm + 1; textsx2='Mulher';}
+            if(sexo3==1){ qtdh = qtdh + 1; textsx3='Homem'; }else{ qtdm = qtdm + 1; textsx3='Mulher';}
+            if(sexo4==1){ qtdh = qtdh + 1; textsx4='Homem'; }else{ qtdm = qtdm + 1; textsx4='Mulher';}
+            if(sexo5==1){ qtdh = qtdh + 1; textsx5='Homem'; }else{ qtdm = qtdm + 1; textsx5='Mulher';}
+
+            
+
+            media = (idade1 + idade2 + idade3 + idade4 + idade5) / 5
+
+            cor = 'green';
+
+            if (nome1 != '' &&
+                sexo1 != '' && 
+                idade1 != '' &&
+                end1 != '' &&
+                nome2 != '' &&
+                sexo2 != '' && 
+                idade2 != '' &&
+                end2 != '' &&
+                nome3 != '' &&
+                sexo3 != '' && 
+                idade3 != '' &&
+                end3 != '' &&
+                nome4 != '' &&
+                sexo4 != '' && 
+                idade4 != '' &&
+                end4 != '' &&
+                nome5 != '' &&
+                sexo5 != '' && 
+                idade5 != '' &&
+                end5 != '' ) {
+
+                document.getElementById('res').innerHTML = `
+            <div class='divres' style='border-left: 5px solid ${cor};'>
+                <div>
+                    <label style='font-size:30px;font-weight: bold;'>Quadro Alunos</label>
+                </div>                
+
+                <table class="table" border="1">
+                    <tr style="background-color: black;color: white;font-weight: bold;">
+                        <th>Nome</th>
+                        <th>Sexo</th>
+                        <th>Idade</th>
+                        <th>Endereço</th>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            ${nome1}
+                        </td>
+                        <td class="td">
+                            ${textsx1}
+                        </td>
+                        <td class="td">
+                            ${idade1}
+                        </td>
+                        <td class="td">
+                            ${end1}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            ${nome2}
+                        </td>
+                        <td class="td">
+                            ${textsx2}
+                        </td>
+                        <td class="td">
+                            ${idade2}
+                        </td>
+                        <td class="td">
+                            ${end2}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            ${nome3}
+                        </td>
+                        <td class="td">
+                            ${textsx3}
+                        </td>
+                        <td class="td">
+                            ${idade3}
+                        </td>
+                        <td class="td">
+                            ${end3}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            ${nome4}
+                        </td>
+                        <td class="td">
+                            ${textsx4}
+                        </td>
+                        <td class="td">
+                            ${idade4}
+                        </td>
+                        <td class="td">
+                            ${end4}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            ${nome5}
+                        </td>
+                        <td class="td">
+                            ${textsx5}
+                        </td>
+                        <td class="td">
+                            ${idade5}
+                        </td>
+                        <td class="td">
+                            ${end5}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="td">
+                            
+                        </td>
+                        <td class="td">
+                            Média idade: ${media}
+                        </td>
+                        <td class="td">
+                           Qtd H: ${qtdh}
+                        </td>
+                        <td class="td">
+                            Qtd M: ${qtdm}
+                        </td>
+                    </tr>
+                    
+                    
+                </table>                
+            </div>
+            `;
+            }else{
+                alert('Preencha os dados!');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

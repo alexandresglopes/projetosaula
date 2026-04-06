@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Série de Exercícios</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+
+    <div class="top">
+        <br>
+        <a href="home.html" class="voltar">Voltar</a>
+    </div>
+
+    <div class="divprincipal">
+        <div class="divtitulo">
+            <label class="labeltitulo">Série de Exercícios</label>
+        </div>
+        <div class="divform">
+            <div class="divinput">
+                <label class="label">Nome</label>
+                <input type="text" class="input" name="nome" id="nome">
+            </div>
+            <div>
+                <table class="table" border="1">
+                    <tr style="background-color: black;color: white;font-weight: bold;">
+                        <th>Exercício</th>
+                        <th>Set</th>
+                        <th>Qtd</th>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <select class="select" name="exc1" id="exc1">
+                                <option value="Peito">Peito</option>
+                                <option value="Ombro">Ombro</option>
+                                <option value="Costas">Costas</option>
+                                <option value="Bicep">Bicep</option>
+                                <option value="Tricep">Tricep</option>
+                                <option value="Pernas">Pernas</option>
+                            </select>
+                        </td>
+                        <td class="td">
+                            <input type="number" class="inputqtd" name="set1" id="set1">
+                        </td>
+                        <td class="td">
+                            <input type="number" class="inputqtd" name="qtd1" id="qtd1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <select class="select" name="exc2" id="exc2">
+                                <option value="Peito">Peito</option>
+                                <option value="Ombro">Ombro</option>
+                                <option value="Costas">Costas</option>
+                                <option value="Bicep">Bicep</option>
+                                <option value="Tricep">Tricep</option>
+                                <option value="Pernas">Pernas</option>
+                            </select>
+                        </td>
+                        <td class="td">
+                            <input type="number" class="inputqtd" name="set2" id="set2">
+                        </td>
+                        <td class="td">
+                            <input type="number" class="inputqtd" name="qtd2" id="qtd2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <select class="select" name="exc3" id="exc3">
+                                <option value="Peito">Peito</option>
+                                <option value="Ombro">Ombro</option>
+                                <option value="Costas">Costas</option>
+                                <option value="Bicep">Bicep</option>
+                                <option value="Tricep">Tricep</option>
+                                <option value="Pernas">Pernas</option>
+                            </select>
+                        </td>
+                        <td class="td">
+                            <input type="number" class="inputqtd" name="set3" id="set3">
+                        </td>
+                        <td class="td">
+                            <input type="number" class="inputqtd" name="qtd3" id="qtd3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            <select class="select" name="exc4" id="exc4">
+                                <option value="Peito">Peito</option>
+                                <option value="Ombro">Ombro</option>
+                                <option value="Costas">Costas</option>
+                                <option value="Bicep">Bicep</option>
+                                <option value="Tricep">Tricep</option>
+                                <option value="Pernas">Pernas</option>
+                            </select>
+                        </td>
+                        <td class="td">
+                            <input type="number" class="inputqtd" name="set4" id="set4">
+                        </td>
+                        <td class="td">
+                            <input type="number" class="inputqtd" name="qtd4" id="qtd4">
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="divinput">
+                <input type="button" class="button" value="Registrar" onclick="registrar()">
+            </div>
+        </div>
+    </div>
+
+    <div class="res" id="res"></div>
+
+    <script>
+        function registrar() {
+            let nome = document.getElementById('nome').value;
+            nome = nome.toUpperCase();
+            let exc1 = document.getElementById('exc1').value;
+            let set1 = document.getElementById('set1').value;
+            let qtd1 = document.getElementById('qtd1').value;
+
+            let exc2 = document.getElementById('exc2').value;
+            let set2 = document.getElementById('set2').value;
+            let qtd2 = document.getElementById('qtd2').value;
+
+            let exc3 = document.getElementById('exc3').value;
+            let set3 = document.getElementById('set3').value;
+            let qtd3 = document.getElementById('qtd3').value;
+
+            let exc4 = document.getElementById('exc4').value;
+            let set4 = document.getElementById('set4').value;
+            let qtd4 = document.getElementById('qtd4').value;
+
+            cor = 'green';
+
+            if (nome != '' &&
+                set1 != '' && qtd1 != '' &&
+                set2 != '' && qtd2 != '' &&
+                set3 != '' && qtd3 != '' &&
+                set4 != '' && qtd4 != '') {
+
+                document.getElementById('res').innerHTML = `
+            <div class='divres' style='border-left: 5px solid ${cor};'>
+                <div>
+                    <label style='font-size:30px;font-weight: bold;'>Série de Exercícios</label>
+                </div>
+                <div>
+                    <label class='nome'>Aluno: ${nome}</label>
+                </div>
+                <hr>
+
+                <table class="table" border="1">
+                    <tr style="background-color: black;color: white;font-weight: bold;">
+                        <th>Exercício</th>
+                        <th>Set</th>
+                        <th>Qtd</th>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            ${exc1}
+                        </td>
+                        <td class="td">
+                            ${set1}
+                        </td>
+                        <td class="td">
+                            ${qtd1}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            ${exc2}
+                        </td>
+                        <td class="td">
+                            ${set2}
+                        </td>
+                        <td class="td">
+                            ${qtd2}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td">
+                            ${exc3}
+                        </td>
+                        <td class="td">
+                            ${set3}
+                        </td>
+                        <td class="td">
+                            ${qtd3}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="td">
+                            ${exc4}
+                        </td>
+                        <td class="td">
+                            ${set4}
+                        </td>
+                        <td class="td">
+                            ${qtd4}
+                        </td>
+                    </tr>
+                    
+                </table>                
+            </div>
+            `;
+            }else{
+                alert('Preencha os dados!');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="css/estilo.css">  
+</head>
+
+<body>
+
+    <div class="divprincipal">
+        <div class="divtitulo">
+            <label class="labeltitulo">Fit-Academy!</label>
+        </div>
+        <div class="divform">
+            <div class="divinput">
+                <label class="label">Login</label>
+                <input type="text" class="input" name="login" id="login">
+            </div>
+            <div class="divinput">
+                <label class="label">Senha</label>
+                <input type="password" class="input" name="senha" id="senha">
+            </div>
+            <div class="divinput">
+                <input type="button" class="button" value="LOGAR" onclick="logar()">
+            </div>
+        </div>
+    </div>
+
+    <div class="res" id="res"></div>
+
+    <script>
+        function logar(){
+
+            let login = document.getElementById('login').value;
+            login = login.toLowerCase();
+            let senha = document.getElementById('senha').value;
+            senha = senha.toLowerCase();
+            let mensagem='';
+            cor='green';
+
+            if((login=='personal' && senha=='admfit') || (login=='admin' && senha=='admfit')){                
+                window.location.href = "home.html";
+            }else if(login=='aluno' && senha=='alunofit'){                
+                window.location.href = "homealuno.html";
+            }else{
+                mensagem='Login e Usuário Inexistente!';
+                cor='red';
+            }
+
+            document.getElementById('res').innerHTML = `
+            <div class='divres' style='border-left: 5px solid ${cor};'>
+                <label class='labelmensagem' style='color:${cor}'>${mensagem}</label>
+            </div>
+            `;
+        }
+    </script>
+
+</body>
+
+</html>
