@@ -129,6 +129,9 @@
         <nav>
             <ul>
                 <li>
+                    <a href="index.html" target="conteudo" onclick="home()">Home</a>
+                </li>
+                <li>
                     <a href="lib/calculovendas.html" target="conteudo" onclick="navegar()">Cálculo de Vendas</a>
                 </li>
                 <li>
@@ -189,6 +192,11 @@
 
         function navegar() {
             welcome.style.display = 'none';
+            fecharMenu();
+        }
+
+        function home() {
+            welcome.style.display = 'block';
             fecharMenu();
         }
 
