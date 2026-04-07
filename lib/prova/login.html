@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="css/estilo.css">  
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 
 <body>
@@ -17,11 +17,11 @@
         <div class="divform">
             <div class="divinput">
                 <label class="label">Login</label>
-                <input type="text" class="input" name="login" id="login">
+                <input type="text" class="input" name="login" value="personal" id="login">
             </div>
             <div class="divinput">
                 <label class="label">Senha</label>
-                <input type="password" class="input" name="senha" id="senha">
+                <input type="password" class="input" name="senha" value="admfit" id="senha">
             </div>
             <div class="divinput">
                 <input type="button" class="button" value="LOGAR" onclick="logar()">
@@ -32,22 +32,22 @@
     <div class="res" id="res"></div>
 
     <script>
-        function logar(){
+        function logar() {
 
             let login = document.getElementById('login').value;
             login = login.toLowerCase();
             let senha = document.getElementById('senha').value;
             senha = senha.toLowerCase();
-            let mensagem='';
-            cor='green';
+            let mensagem = '';
+            cor = 'green';
 
-            if((login=='personal' && senha=='admfit') || (login=='admin' && senha=='admfit')){                
+            if ((login == 'personal' && senha == 'admfit') || (login == 'admin' && senha == 'admfit')) {
                 window.location.href = "home.html";
-            }else if(login=='aluno' && senha=='alunofit'){                
+            } else if (login == 'aluno' && senha == 'alunofit') {
                 window.location.href = "homealuno.html";
-            }else{
-                mensagem='Login e Usuário Inexistente!';
-                cor='red';
+            } else {
+                mensagem = 'Login e Usuário Inexistente!';
+                cor = 'red';
             }
 
             document.getElementById('res').innerHTML = `
