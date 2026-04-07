@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
     <style>
         * {
             margin: 0;
@@ -23,8 +24,9 @@
 
 
         .main-content {
-            flex-grow: 1;
+            /*flex-grow: 1;*/
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 40px 20px;
@@ -115,6 +117,9 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            height: 100%;
+            max-height: 100%;
         }
 
         .imagem-produto {
@@ -125,7 +130,7 @@
             align-items: center;
             justify-content: center;
             padding: 40px;
-        }        
+        }
 
         .imagem-produto img {
             max-width: 100%;
@@ -188,7 +193,7 @@
             transition: 0.5s;
         }
 
-        .btn-comprar:hover{
+        .btn-comprar:hover {
             transform: translateY(-3px);
             background-color: #4a69bd;
         }
@@ -207,7 +212,7 @@
             }
 
             .produto-container {
-                flex-direction: column;
+                flex-direction: column;                
             }
         }
     </style>
@@ -234,24 +239,53 @@
     </header>
 
     <div class="main-content">
-        <div class="produto-container">
-            <div class="imagem-produto">
-                <img src="img/fone1.jpg" alt="Fone de Ouvido Premium">
-            </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="produto-container">
+                    <div class="imagem-produto">
+                        <img src="img/fone1.jpg" alt="Fone de Ouvido Premium">
+                    </div>
 
-            <div class="detalhes-produto">
-                <span class="tag">LANÇAMENTO 2026</span>
-                <h1>Apple AirPods Max - Laranja</h1>
-                <p>A EXPERIÊNCIA MAIS AVANÇADA EM FONES DE OUVIDO... som de alta-fidelidade.</p>
+                    <div class="detalhes-produto">
+                        <span class="tag">LANÇAMENTO 2026</span>
+                        <h1>Apple AirPods Max - Laranja</h1>
+                        <p>A EXPERIÊNCIA MAIS AVANÇADA EM FONES DE OUVIDO... som de alta-fidelidade.</p>
 
-                <div class="preco-area">
-                    <span style="text-decoration: line-through; color: #b2bec3;">R$ 5.459,90</span>
-                    <span class="preco-novo">R$ 4.459,90</span>
+                        <div class="preco-area">
+                            <span style="text-decoration: line-through; color: #b2bec3;">R$ 5.459,90</span>
+                            <span class="preco-novo">R$ 4.459,90</span>
+                        </div>
+
+                        <a href="#" class="btn-comprar">Comprar Agora</a>
+                    </div>
                 </div>
 
-                <a href="#" class="btn-comprar">Comprar Agora</a>
+            </div>
+            <div class="col-6">
+                <div class="produto-container">
+                    <div class="imagem-produto">
+                        <img src="img/fone.png" alt="Fone de Ouvido Premium">
+                    </div>
+
+                    <div class="detalhes-produto">
+                        <span class="tag">LANÇAMENTO 2026</span>
+                        <h1>Apple AirPods Max - Preto</h1>
+                        <p>A EXPERIÊNCIA MAIS AVANÇADA EM FONES DE OUVIDO... som de alta-fidelidade.</p>
+
+                        <div class="preco-area">
+                            <span style="text-decoration: line-through; color: #b2bec3;">R$ 3.459,90</span>
+                            <span class="preco-novo">R$ 2.459,90</span>
+                        </div>
+
+                        <a href="#" class="btn-comprar">Comprar Agora</a>
+                    </div>
+                </div>
+
             </div>
         </div>
+
+
+
     </div>
 
 </body>
