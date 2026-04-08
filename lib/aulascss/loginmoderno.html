@@ -154,13 +154,19 @@
                 <input type="password" id="senha" name="senha" placeholder="••••••••">
             </div>
             
-            <button type="submit" class="btn-logar">Acessar Sistema</button>
+            <button type="button" class="btn-logar" onclick="navegar()">Acessar Sistema</button>
         </form>
 
         <div class="footer-links">
             <span>Ainda não tem conta? <a href="#">Cadastre-se</a></span>
         </div>
     </div>
+
+    <script>
+        function navegar(){
+            window.location.href = "loja.html";
+        }
+    </script>
 
 </body>
 
