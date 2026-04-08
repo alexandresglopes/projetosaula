@@ -7,6 +7,7 @@
     <title>Cadastro de Produtos</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
+    <script src="../../js/script.js"></script>
 
     <style>
         * {
@@ -235,7 +236,7 @@
                     <div class="col-6">
                         <div class="campo-input">
                             <label>Valor Unitário (R$)</label>
-                            <input type="number" id="valorUnitario" step="0.01" placeholder="0,00" oninput="calcularTotal()" required>
+                            <input type="text" id="valorUnitario" step="0.01" placeholder="0,00" oninput="calcularTotal(); mascaraMoeda(this);" required>
                         </div>
                     </div>
 
@@ -262,7 +263,9 @@
         
         function calcularTotal() {
             let qtd = document.getElementById('quantidade').value;
+            qtd = Number(qtd.replace(/\./g, "").replace(",", "."));
             let valor = document.getElementById('valorUnitario').value;
+            valor = Number(valor.replace(/\./g, "").replace(",", "."));
             let totalElemento = document.getElementById('valorTotal');
 
             if (qtd && valor) {
