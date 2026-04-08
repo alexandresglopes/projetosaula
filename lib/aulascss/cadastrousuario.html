@@ -99,7 +99,6 @@
         }
 
         .select {
-
             width: 100%;
             padding: 15px 20px;
             border-radius: 30px;
@@ -109,7 +108,6 @@
             outline: none;
             transition: all 0.3s;
             color: #333;
-
         }
 
         .select:focus {
@@ -156,15 +154,12 @@
             text-decoration: underline;
         }
 
-        .img {
-            width: 20px;
-        }
-
         .confirmsenha {
             display: none;
             color: red;
             font-size: 12px;
             font-weight: bold;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -177,9 +172,8 @@
         <h2>Cadastro</h2>
         <p>Preencha o formulário para se cadastrar:</p>
 
-        <form>
-            <div class="form-goup">
-
+        <form onsubmit="event.preventDefault(); cadastro();">
+            <div class="form-group">
                 <div class="row">
                     <div class="col-6">
                         <div class="campo-input">
@@ -190,7 +184,7 @@
                     <div class="col-6">
                         <div class="campo-input">
                             <label>Sobrenome</label>
-                            <input type="text" id="sobrenome" name="nome" placeholder="Digite seu nome" required>
+                            <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome" required>
                         </div>
                     </div>
                     <div class="col-6">
@@ -199,14 +193,14 @@
                             <select class="select" name="sexo" id="sexo" required>
                                 <option value="">---selecione---</option>
                                 <option value="1">Homem</option>
-                                <option value="2">Mulher</option> 
-                            </select> 
+                                <option value="2">Mulher</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="campo-input">
                             <label>E-mail</label>
-                            <input type="email" id="email" name="email" placeholder="Digite seu nome" required>
+                            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
                         </div>
                     </div>
                     <div class="col-6">
@@ -225,9 +219,8 @@
                     </div>
 
                     <div class="col-12">
-                        <button type="button" class="btn-logar" onclick="cadastro()">Cadastrar</button>
+                        <button type="submit" class="btn-logar">Cadastrar</button>
                     </div>
-
                 </div>
             </div>
         </form>
@@ -238,18 +231,20 @@
     </div>
 
     <script>
-
         function validaSenha(input) {
             let senha = document.getElementById('txtSenha').value;
-            let confirma = document.getElementById('txtConfirmarSenha').value;
-            if (confirma != senha) {
+            let confirma = input.value;
+            
+            if (confirma !== senha) {
                 document.getElementById('confirmsenha').style.display = 'block';
+                input.setCustomValidity('As senhas não coincidem!');
             } else {
                 document.getElementById('confirmsenha').style.display = 'none';
+                input.setCustomValidity('');
             }
         }
 
-        function cadastro() {            
+        function cadastro() {
             let nome = document.getElementById('nome').value;
             let sobrenome = document.getElementById('sobrenome').value;
             let sexo = document.getElementById('sexo').value;
@@ -257,20 +252,13 @@
             let senha = document.getElementById('txtSenha').value;
             let confirma = document.getElementById('txtConfirmarSenha').value;
 
-
-
-            if (nome && sobrenome && sexo && email && senha) {
-                if (senha === confirma) {
-                    alert('Cadastro realizado com sucesso!');
-                    window.location.href = "loginmoderno.html";
-                } else {
-                    alert('As senhas não coincidem!');
-                }
+            
+            if (senha === confirma) {
+                alert('Cadastro realizado com sucesso!');
+                window.location.href = "loginmoderno.html";
             } else {
-                alert('Preencha todos os dados!');
+                alert('As senhas não coincidem!');
             }
-
-
         }
     </script>
 
