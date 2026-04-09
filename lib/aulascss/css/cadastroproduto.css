@@ -10,7 +10,7 @@
      display: flex;
      justify-content: center;
      align-items: center;
-     /*min-height: 100vh;*/
+     /*min-height: 100vh;*/     
      color: #333;
      padding: 20px;
  }
@@ -24,6 +24,7 @@
      box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.2);
      border-radius: 25px;
      transition: all 0.4s ease;
+     margin: 30px;
  }
 
  .principal:hover {
