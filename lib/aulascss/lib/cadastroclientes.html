@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Funcionário</title>
+    <title>Cadastro de Clientes</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../bootstrap/bootstrap.css">
     <script src="../../../js/script.js"></script>
-    <link rel="stylesheet" href="../css/funcionario.css">
+    <link rel="stylesheet" href="../css/clientes.css">
     <style>
         
     </style>
@@ -23,8 +23,8 @@
         
         <img src="../img/func.png" alt="" class="icone-cadastro">
 
-        <h2>Cadastro de Funcionário:</h2>
-        <p>Preencha os dados abaixo para salvar o funcionário:</p>
+        <h2>Cadastro de Clientes:</h2>
+        <p>Preencha os dados abaixo para salvar o cliente:</p>
 
         <form onsubmit="event.preventDefault(); salvarFuncionario();">
             <div class="form-group">
@@ -87,17 +87,18 @@
                     </div>
                     <div class="col-6">
                         <div class="campo-input">
-                            <label>Salário (R$)</label>
-                            <input type="text" id="salario" name="salario" step="0.01" placeholder="0,00" oninput="mascaraMoeda(this);"
+                            <label>E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="exemplo@email.com"
                                 required>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="campo-input">
-                            <label>Cargo</label>
-                            <input type="text" id="cargo" name="cargo" placeholder="Digite seu cargo" required>
+                            <label>Celular</label>
+                            <input type="text" id="celular" name="celular" placeholder="(00) 00000-0000"
+                                required>
                         </div>
-                    </div>
+                    </div>                  
 
 
                     <div class="col-12">
@@ -137,13 +138,13 @@
             const cpf = document.getElementById('cpf').value;
             const rg = document.getElementById('rg').value;
             const sexo = document.getElementById('sexo').value;
-            const salario = document.getElementById('salario').value;
-            const cargo = document.getElementById('cargo').value;
+            const email = document.getElementById('email').value;
+            const celular = document.getElementById('celular').value;
             let s='';
 
             if(sexo==1){ s='Homem'}else{ s='Mulher'}
 
-            alert(`Sucesso!\nO Funcionário ${nome} ${sobrenome},\n CPF: ${cpf},\n RG: ${rg},\n Sexo: ${s},\n Salário: ${salario},\n Cargo: ${cargo}\n foi salvo com sucesso!`);
+            alert(`Sucesso!\nO Cliente ${nome} ${sobrenome},\n CPF: ${cpf},\n RG: ${rg},\n Sexo: ${s},\n E-mail: ${email},\n Celular: ${celular}\n foi salvo com sucesso!`);
 
             document.querySelector('form').reset();
             document.getElementById('valorTotal').value = "0,00";
