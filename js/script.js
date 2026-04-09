@@ -33,3 +33,12 @@ function mascaraAltura(i) {
     }
     i.value = v;
 }
+
+function mascaraCPF(i) {
+    let v = i.value;
+    v = v.replace(/\D/g, "");
+    v = v.replace(/(\d{3})(\d)/, "$1.$2");
+    v = v.replace(/(\d{3})(\d)/, "$1.$2");
+    v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    i.value = v;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/csshome.css">    
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <!--button class="menu-toggle" onclick="toggleMenu()">☰</button-->
+            <a href="#" class="navbar-brand">PORJETO<span> CSS</span></a>
+        </div>
+        
+        <div class="user-info" style="display: flex; align-items: center; gap: 10px;">
+            <span class="user-name" style="font-size: 14px;">Olá, Aluno</span>
+            <div class="profile" onclick="toggleMenu()">☰</div>
+        </div>
+    </nav>
+
+    <div class="main-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <a href="#" class="sidebar-item active">🏠 Dashboard</a>
+            <a href="cadastrofuncionario.html" class="sidebar-item">👥 Funcionários</a>            
+            <a href="cadastroproduto.html" class="sidebar-item">📦 Produtos</a>            
+            
+            <a href="../index.html" class="sidebar-item" style="margin-top: auto; color: #ffbcbc;">🚪 Sair</a>
+        </aside>
+
+        <main class="content">
+            <div class="welcome-card">
+                <h2>Painel Principal</h2>
+                <p>Gerencie sua empresa.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span style="font-size: 24px; font-weight: 600; color: #667eea; display: block;">128</span>
+                        <span style="font-size: 13px; color: #888;">Produtos</span>
+                    </div>                    
+                    <div class="stat-box">
+                        <span style="font-size: 24px; font-weight: 600; color: #667eea; display: block;">45</span>
+                        <span style="font-size: 13px; color: #888;">Funcionários</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');            
+            sidebar.classList.toggle('open');
+        }
+        
+        document.querySelector('.content').addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
+
+</body>
+</html>

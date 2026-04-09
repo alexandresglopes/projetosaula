@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../bootstrap/bootstrap.css">
+    <script src="../../../js/script.js"></script>
+    <link rel="stylesheet" href="../css/cadastroproduto.css">
+
+    <style>
+       
+    </style>
+</head>
+
+<body>
+
+    <div class="principal">
+        <div class="form-group" style="text-align: left;">
+            <a href="home.html" class="btn-voltar">🏠</a>
+        </div>
+        <img src="../img/produto.png" alt="" class="icone-cadastro">
+
+        <h2>Novo Produto</h2>
+        <p>Preencha os dados abaixo para salvar no estoque:</p>
+
+        <form onsubmit="event.preventDefault(); salvarProduto();">
+            <div class="form-group">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="preview-container">
+                            <div class="image-preview" id="imagePreview">
+                                <img src="" alt="Preview da Imagem" id="previewImage">
+                                <div class="preview-placeholder" id="previewPlaceholder">
+                                    Sua imagem<br>aparecerá aqui
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="campo-input">
+                            <label>Imagem do Produto</label>
+                            <input type="file" id="imagemProduto" accept="image/*" onchange="exibirPreview(this)"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="campo-input">
+                            <label>Produto</label>
+                            <input type="text" id="produto" placeholder="Ex: Feijão" required>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="campo-input">
+                            <label>Marca</label>
+                            <input type="text" id="marca" placeholder="Ex: Tropeiro" required>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="campo-input">
+                            <label>Quantidade</label>
+                            <input type="number" id="quantidade" placeholder="0" min="1" oninput="calcularTotal()"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <div class="campo-input">
+                                    <label>Valor Unitário (R$)</label>
+                                    <input type="text" id="valorUnitario" step="0.01" placeholder="0,00"
+                                        oninput="mascaraMoeda(this); calcularTotal();" required>
+                                </div>
+                            </div>
+                            <div class="col-3" style="display: flex; justify-content: center;">
+                                <button type="button" class="btncalcular" onclick="calcularTotal();"
+                                    title="Calcular Total">💵</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12">
+                        <div class="campo-input">
+                            <label>Valor Total (R$)</label>
+                            <input type="text" id="valorTotal" value="0,00" disabled>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn-salvar">Salvar Produto</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+
+    <script>
+        function mascaraMoeda(i) {
+            let v = i.value.replace(/\D/g, "");
+            v = (v / 100).toFixed(2) + "";
+            v = v.replace(".", ",");
+            v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+            v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
+            i.value = v;
+        }
+
+        function calcularTotal() {
+            let qtdInput = document.getElementById('quantidade').value;
+            let valorInput = document.getElementById('valorUnitario').value;
+            let totalElemento = document.getElementById('valorTotal');
+            
+            let qtd = parseFloat(qtdInput) || 0;
+            
+            let valorLimpo = valorInput.replace(/\./g, "").replace(",", ".");
+            let valor = parseFloat(valorLimpo) || 0;
+
+            if (qtd > 0 && valor > 0) {
+                let resultado = qtd * valor;
+                
+                totalElemento.value = resultado.toLocaleString('pt-br', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+            } else {
+                totalElemento.value = "0,00";
+            }
+        }
+
+        function exibirPreview(input) {
+            const preview = document.getElementById('previewImage');
+            const placeholder = document.getElementById('previewPlaceholder');
+
+            if (input.files && input.files[0]) {
+                const leitor = new FileReader();
+                leitor.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    placeholder.style.display = 'none';
+                }
+                leitor.readAsDataURL(input.files[0]);
+            } else {
+                preview.src = "";
+                preview.style.display = 'none';
+                placeholder.style.display = 'block';
+            }
+        }
+
+        function salvarProduto() {
+            const produto = document.getElementById('produto').value;
+            const marca = document.getElementById('marca').value;
+            const total = document.getElementById('valorTotal').value;
+
+            alert(`Sucesso!\nO produto "${produto}" (${marca}) foi salvo.\nValor Total: R$ ${total}`);
+
+            document.querySelector('form').reset();
+            document.getElementById('valorTotal').value = "0,00";
+            document.getElementById('previewImage').style.display = 'none';
+            document.getElementById('previewPlaceholder').style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>
