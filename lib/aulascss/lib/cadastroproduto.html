@@ -9,10 +9,6 @@
     <link rel="stylesheet" href="../bootstrap/bootstrap.css">
     <script src="../../../js/script.js"></script>
     <link rel="stylesheet" href="../css/cadastroproduto.css">
-
-    <style>
-       
-    </style>
 </head>
 
 <body>
@@ -101,7 +97,7 @@
                 </div>
             </div>
         </form>
-        
+
     </div>
 
     <script>
@@ -118,15 +114,15 @@
             let qtdInput = document.getElementById('quantidade').value;
             let valorInput = document.getElementById('valorUnitario').value;
             let totalElemento = document.getElementById('valorTotal');
-            
+
             let qtd = parseFloat(qtdInput) || 0;
-            
+
             let valorLimpo = valorInput.replace(/\./g, "").replace(",", ".");
             let valor = parseFloat(valorLimpo) || 0;
 
             if (qtd > 0 && valor > 0) {
                 let resultado = qtd * valor;
-                
+
                 totalElemento.value = resultado.toLocaleString('pt-br', {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2
