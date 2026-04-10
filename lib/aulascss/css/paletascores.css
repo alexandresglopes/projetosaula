@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s ease;
+}
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.principal {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    background-color: white;
+    box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #888;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.select-estilizado {
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    border: 2px solid #eee;
+    background-color: #f8f9fa;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.paleta-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.cor-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.cor-bloco {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cor-codigo {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    background: #eee;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.btn-exemplo {
+    margin-top: 30px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstrador de Paletas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/paletascores.css">
+</head>
+
+<body>
+
+    <div class="principal" id="containerPrincipal">
+        <h2>Seletor de Cores</h2>
+        <p>Escolha uma paleta para visualizar a aplicação no SuperMercadoMaster</p>
+
+        <select id="seletorPaleta" class="select-estilizado" onchange="mudarPaleta()">
+            <option value="">-- Selecione uma Paleta --</option>
+            <option value="eco">Eco-Fresh (Sustentabilidade)</option>
+            <option value="trust">Modern Trust (Tecnologia)</option>
+            <option value="vibrant">Vibrant Market (Dinamismo)</option>
+        </select>
+
+        <div id="display" class="paleta-display">
+        </div>
+
+        <button id="btnTeste" class="btn-exemplo" style="display: none;">Botão de Exemplo</button>
+    </div>
+
+    <script>
+        const paletas = {
+            eco: {
+                cores: ["#2D6A4F", "#74C69D", "#D8F3DC", "#FFB703"],
+                nome: "Eco-Fresh"
+            },
+            trust: {
+                cores: ["#023E8A", "#0077B6", "#CAF0F8", "#E63946"],
+                nome: "Modern Trust"
+            },
+            vibrant: {
+                cores: ["#E85D04", "#F48C06", "#FFF3E0", "#212529"],
+                nome: "Vibrant Market"
+            }
+        };
+
+        function mudarPaleta() {
+            const select = document.getElementById('seletorPaleta');
+            const display = document.getElementById('display');
+            const btn = document.getElementById('btnTeste');
+            const paletaSelecionada = paletas[select.value];
+
+            display.innerHTML = "";
+
+            if (paletaSelecionada) {
+                paletaSelecionada.cores.forEach(cor => {
+                    const divItem = document.createElement('div');
+                    divItem.className = 'cor-item';
+                    divItem.innerHTML = `
+                        <div class="cor-bloco" style="background-color: ${cor}"></div>
+                        <span class="cor-codigo">${cor}</span>
+                    `;
+                    display.appendChild(divItem);
+                });
+
+                btn.style.display = "inline-block";
+                btn.style.backgroundColor = paletaSelecionada.cores[0];
+                document.body.style.background = `linear-gradient(135deg, ${paletaSelecionada.cores[0]} 0%, ${paletaSelecionada.cores[1]} 100%)`;
+            } else {
+                btn.style.display = "none";
+                document.body.style.background = "#f0f2f5";
+            }
+        }
+    </script>
+</body>
+
+</html>

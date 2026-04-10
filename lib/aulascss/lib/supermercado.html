@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperMercadoMaster</title>
+    <link rel="stylesheet" href="../css/supermercado.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>SuperMercado<span>Master</span></h1>
+            <p>Sistema de Alerta de Perecíveis</p>
+        </header>
+
+        <main class="card">
+            <div class="form-grid">
+                <div class="campo">
+                    <label for="categoria">Categoria do Produto:</label>
+                    <select id="categoria">
+                        <option value="fruta">Frutas/Vegetais</option>
+                        <option value="laticinio">Laticínios</option>
+                        <option value="carne">Carnes</option>
+                        <option value="padaria">Padaria</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label>Nome do Produto:</label>
+                    <input type="text" name="produto" id="produto" required>
+                </div>
+                <button onclick="calcularValidade()">Verificar Validade</button>
+            </div>
+
+            <div id="resultado" class="alerta-box" style="display: none;">
+                <p id="mensagem"></p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function calcularValidade() {
+            const categoriaSelecionada = document.getElementById('categoria').value;
+            let produto = document.getElementById('produto').value;
+            const divResultado = document.getElementById('resultado');
+            const msg = document.getElementById('mensagem');
+
+            const diasVidaUtil = {
+                'fruta': 3,
+                'laticinio': 15,
+                'carne': 5,
+                'padaria': 2
+            };
+
+            const hoje = new Date();
+
+            const diasParaAdicionar = diasVidaUtil[categoriaSelecionada];
+
+            const dataValidade = new Date();
+            dataValidade.setDate(hoje.getDate() + diasParaAdicionar);
+
+            const dataFormatada = dataValidade.toLocaleDateString('pt-BR');
+
+            divResultado.style.display = 'block';
+            divResultado.className = 'alerta-box';
+            divResultado.classList.add('urgente');
+            msg.innerHTML = `
+                Produto: <strong>${produto.toUpperCase()}</strong><br>
+                Categoria: <strong>${categoriaSelecionada.toUpperCase()}</strong><br>
+                Prazo de consumo: <strong>${diasParaAdicionar} dias</strong><br>
+                Vencerá em: <b>${dataFormatada}</b>
+            `;
+        }        
+    </script>
+</body>
+
+</html>
