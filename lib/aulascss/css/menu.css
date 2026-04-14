@@ -16,7 +16,7 @@
 }
 
 body {
-    background: var(--gradiente); 
+    background: var(--gradiente);
     min-height: 100vh;
     color: var(--texto);
     line-height: 1.6;
@@ -37,7 +37,7 @@ body {
 
 .menu {
     background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px); /* Efeito de vidro */
+    backdrop-filter: blur(10px);
     padding: 10px 0;
     box-shadow: var(--sombra);
 }
@@ -146,4 +146,66 @@ body {
     transform: scale(1.05);
     filter: brightness(1.1);
     box-shadow: 0px 12px 25px rgba(102, 126, 234, 0.5);
+}
+
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-icon span {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: flex;
+    }
+
+    .menu ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+
+    #menu-toggle:checked~ul {
+        display: flex;
+    }
+
+    .menu ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu a {
+        width: 100%;
+        border-radius: 10px;
+    }
 }
