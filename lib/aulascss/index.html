@@ -4,44 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Empresa Master</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">    
+    <link rel="stylesheet" href="css/landpage.css">
 </head>
 
 <body>
 
-    <div class="principal">
-        <img src="img/imagem.png" alt="">
-        
-        <h2>Bem-vindo</h2>
-        <p>Acesse sua conta para continuar</p>
-        
-        <form>
-            <div class="campo-input">
-                <label>Usuário</label>
-                <input type="text" id="login" name="login" placeholder="Digite seu usuário">
-            </div>
-            
-            <div class="campo-input">
-                <label>Senha</label>
-                <input type="password" id="senha" name="senha" placeholder="••••••••">
-            </div>
-            
-            <button type="button" class="btn-logar" onclick="navegar()">Acessar Sistema</button>
-        </form>
-
-        <div class="footer-links">
-            <span>Ainda não tem conta? <a href="lib/cadastrousuario.html">Cadastre-se</a></span>
+    <nav class="navbar">
+        <div class="nav-left">
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <a href="#" class="navbar-brand">DIG<span>TECH</span></a>
         </div>
+
+        <div class="nav-links">
+            <a href="#" class="nav-link active">Inicial</a>
+            <a href="lib/quemsomos.html" class="nav-link">Quem Somos</a>
+            <a href="lib/faleconosco.html" class="nav-link">Contatos</a>
+            <a href="lib/login.html" class="nav-login">Login</a>
+        </div>
+
+       
+    </nav>
+
+    <div class="main-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <a href="#" class="sidebar-item active">🏠 Inicial</a>
+            <a href="lib/quemsomos.html" class="sidebar-item">👥 Quem Somos</a>
+            <a href="lib/faleconosco.html" class="sidebar-item">📞 Contatos</a>
+            <hr style="border: 0.5px solid rgba(255,255,255,0.2); margin: 10px 0;">
+            <a href="lib/login.html" class="sidebar-item">🔑 Login</a>
+        </aside>
+
+        <main class="content">
+            <div class="hero-section">
+                <h1>Inovação e Tecnologia para o seu Negócio</h1>
+                <p>Soluções completas em análise de sistemas e gestão empresarial com a confiança da DIGTECH.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-box card-glass">
+                        <span class="stat-icon">🚀</span>
+                        <span class="stat-title">Agilidade</span>
+                        <p>Processos otimizados para sua empresa não parar.</p>
+                    </div>
+                    <div class="stat-box card-glass">
+                        <span class="stat-icon">🛡️</span>
+                        <span class="stat-title">Segurança</span>
+                        <p>Dados protegidos com a melhor tecnologia atual.</p>
+                    </div>
+                    <div class="stat-box card-glass">
+                        <span class="stat-icon">💡</span>
+                        <span class="stat-title">Inovação</span>
+                        <p>Sempre à frente com as melhores soluções.</p>
+                    </div>
+                </div>
+
+                <!-- <button class="btn-cta">Saiba Mais</button> -->
+            </div>
+        </main>
     </div>
 
     <script>
-        function navegar(){
-            window.location.href = "lib/home.html";
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
         }
     </script>
 
 </body>
-
 </html>

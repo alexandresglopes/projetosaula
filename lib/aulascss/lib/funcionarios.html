@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../css/clientes.css">
+</head>
+
+<body>
+
+    <div class="principal">
+        <div class="form-group" style="display: flex; justify-content: space-between;">
+            <a href="home.html" class="btn-voltar">⬅</a>
+            <label class="label">Lista de Funcionários</label>
+            <a href="cadastrofuncionario.html" class="btn-voltar">👥</a>
+        </div>
+
+        <div class="divtable">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Celular</th>
+                        <th>E-mail</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const clientes = [
+            { nome: "João Silva", cpf: "111.111.111-11", celular: "(21) 99999-9999", email: "joao@email.com" },
+            { nome: "Maria Oliveira", cpf: "222.222.222-22", celular: "(21) 98888-8888", email: "maria@email.com" },
+            { nome: "Carlos Souza", cpf: "333.333.333-33", celular: "(11) 97777-7777", email: "carlos@email.com" }
+        ];
+
+        function popularTabela() {
+            const corpoTabela = document.querySelector(".table tbody");
+
+
+            corpoTabela.innerHTML = "";
+
+
+            clientes.forEach((cliente) => {
+                const linha = `
+                <tr>
+                    <td>${cliente.nome}</td>
+                    <td>${cliente.cpf}</td>
+                    <td>${cliente.celular}</td>
+                    <td>${cliente.email}</td>
+                    <td><button class="btn-edit" onclick="editarCliente('${cliente.cpf}')">✏️</button></td>
+                </tr>
+            `;
+                corpoTabela.innerHTML += linha;
+            });
+        }
+
+
+        function editarCliente(cpf) {
+            alert("Editar cliente com CPF: " + cpf);
+        }
+
+
+        window.onload = popularTabela;
+    </script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatos - Empresa Master</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/csshome.css">
+    <link rel="stylesheet" href="../css/faleconosco.css">    
+</head>
+
+<body>
+
+    <main class="content">
+        <div class="contact-wrapper">
+            
+            <div class="contact-info">
+                <h1>Fale Conosco</h1>
+                <p>Tem alguma dúvida ou projeto em mente? Nossa equipe está pronta para te atender.</p>
+                
+                <div style="margin-top: 20px; font-size: 14px; opacity: 0.9;">
+                    <p>📍 Av. Brasil, Rio de Janeiro - RJ</p>
+                    <p>📞 (21) 99999-9999</p>
+                    <p>✉️ contato@digtech.com.br</p>
+                </div>
+
+                <div class="map-container card-glass">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117661.16104273824!2d-43.2458145!3d-22.8427909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x996345688d9289%3A0xc343714658147!2sLeopoldina%2C%20Rio%20de%20Janeiro%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1712860000000!5m2!1spt-BR!2sbr" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+                <a href="../index.html" style="color: white; margin-top: 20px; text-decoration: none; font-size: 13px;">← Voltar para Inicial</a>
+            </div>
+
+            <div class="form-contact">
+                <form onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!');">
+                    <div class="input-group">
+                        <label>Nome Completo</label>
+                        <input type="text" placeholder="Seu nome" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" placeholder="seuemail@contato.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Mensagem</label>
+                        <textarea rows="4" placeholder="Como podemos ajudar?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+
+</html>
