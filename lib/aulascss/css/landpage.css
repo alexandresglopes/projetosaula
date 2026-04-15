@@ -200,6 +200,9 @@ body {
     border: none;
     cursor: pointer;
     color: #667eea;
+    position: relative;
+    right: 0px;
+    top: 0px;
 }
 
 
