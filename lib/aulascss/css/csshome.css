@@ -19,7 +19,6 @@ body {
 
 .navbar {
     background-color: white;
-    height: 70px;
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
@@ -28,6 +27,8 @@ body {
     position: sticky;
     top: 0;
     z-index: 1100;
+    min-height: 60px;
+    height: 60px;
 }
 
 .nav-left {
@@ -102,6 +103,8 @@ body {
     padding: 20px;
     display: flex;
     justify-content: center;
+    padding: 10px;
+
 }
 
 .welcome-card {
@@ -114,6 +117,10 @@ body {
     text-align: center;
 }
 
+.welcome-card h2 {
+    color: #764ba2;
+}
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -121,12 +128,41 @@ body {
     margin-top: 30px;
 }
 
-.stat-box {
+.box {
     background-color: #f8f9fa;
-    padding: 20px;
+    padding: 40px;
     border-radius: 20px;
     border: 2px solid #f0f1f2;
+    transition: 0.4s;
+    cursor: pointer;
 }
+
+.box:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid #764ba2;
+}
+
+.box:hover .qtd {
+    color: #764ba2;
+}
+
+.box:hover .tipo {
+    color: #764ba2;
+}
+
+.qtd {
+    font-size: 24px;
+    font-weight: 600;
+    color: #667eea;
+    display: block;
+}
+
+.tipo {
+    font-size: 13px;
+    color: #888;
+}
+
 
 
 @media (max-width: 768px) {

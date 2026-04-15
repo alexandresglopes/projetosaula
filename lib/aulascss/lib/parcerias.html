@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliança Tech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/parcerias.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+</head>
+
+<body>
+
+    <div class="top">
+        <a href="home.html">⬅️</a>
+        <label class="label">Empresas Parceiras</label>
+        <div style="width: 24px;"></div>
+    </div>
+
+    <div class="partners-grid" id="grid-parceiros">
+    </div>
+
+    <script>
+        const parceiros = [
+            { nome: "Google Cloud", categoria: "Infraestrutura", icone: "☁️" },
+            { nome: "Microsoft", categoria: "Software", icone: "💻" },
+            { nome: "Amazon AWS", categoria: "Hospedagem", icone: "📦" },
+            { nome: "Cisco", categoria: "Redes", icone: "📡" },
+            { nome: "Intel", categoria: "Hardware", icone: "🔌" },
+            { nome: "Oracle", categoria: "Banco de Dados", icone: "📊" },
+            { nome: "Dell", categoria: "Equipamentos", icone: "🖥️" },
+            { nome: "Adobe", categoria: "Design", icone: "🎨" }
+        ];
+
+        function carregarParceiros() {
+            const grid = document.getElementById("grid-parceiros");
+            grid.innerHTML = "";
+
+            parceiros.forEach(p => {
+                const card = `
+                    <div class="partner-card">
+                        <div class="partner-logo-wrapper">
+                            ${p.icone}
+                        </div>
+                        <div class="partner-name">${p.nome}</div>
+                        <div class="partner-tag">${p.categoria}</div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        window.onload = carregarParceiros;
+    </script>
+</body>
+
+</html>

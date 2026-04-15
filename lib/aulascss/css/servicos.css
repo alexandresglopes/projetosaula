@@ -15,7 +15,7 @@ body {
     padding: 20px;
 }
 
-
+/**pc**/
 @media (min-width: 767px) {
     .principal {
         width: 80%;
@@ -29,7 +29,7 @@ body {
     }
 }
 
-
+/**cel**/
 @media (max-width: 768px) {
     .principal {
         width: 100%;
@@ -94,6 +94,7 @@ label {
 
 
 input[type="text"],
+input[type="email"],
 input[type="number"],
 input[type="file"] {
     width: 100%;
@@ -261,6 +262,7 @@ input:disabled {
     box-shadow: 0px 8px 15px rgba(102, 126, 234, 0.5);
 }
 
+
 .divtable {
     margin-top: 20px;
     overflow-x: auto;
@@ -340,4 +342,64 @@ input:disabled {
 .top a {
     text-decoration: none;
     font-size: 20px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.4s ease;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid #667eea;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+    border-bottom: 5px solid #764ba2;
+}
+
+.service-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.service-card h3 {
+    color: #4a4a4a;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.service-card p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.btn-contratar {
+    margin-top: auto;
+    padding: 10px 25px;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.3s;
 }

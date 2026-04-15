@@ -7,7 +7,7 @@
     <title>Aliança Tech</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="../css/funcionario.css">
+    <link rel="stylesheet" href="../css/produtos.css">
     <link rel="icon" type="image/x-icon" href="../img/logo.png">
 </head>
 
@@ -16,9 +16,9 @@
     <div class="top">
         <a href="home.html" style="text-decoration: none; font-size: 24px;">⬅️</a>
 
-        <label class="label" style="margin: 0;">Lista de Funcionários</label>
+        <label class="label" style="margin: 0;">Lista de Produtos</label>
 
-        <a href="cadastrofuncionario.html" style="text-decoration: none; font-size: 24px;">➕</a>
+        <a href="cadastroproduto.html" style="text-decoration: none; font-size: 24px;">➕</a>
     </div>
 
     <div class="principal">
@@ -27,10 +27,10 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>CPF</th>
-                        <th>Celular</th>
-                        <th>E-mail</th>
+                        <th>Produto</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Qtd.</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -47,9 +47,9 @@
     <script>
 
         const clientes = [
-            { nome: "João Silva", cpf: "111.111.111-11", celular: "(21) 99999-9999", email: "joao@email.com" },
-            { nome: "Maria Oliveira", cpf: "222.222.222-22", celular: "(21) 98888-8888", email: "maria@email.com" },
-            { nome: "Carlos Souza", cpf: "333.333.333-33", celular: "(11) 97777-7777", email: "carlos@email.com" }
+            { produto: "Placa de Vídeo", marca: "Nvidia", modelo: "Ge Force", qtd: "20" },
+            { produto: "Memória RAM", marca: "Multilaser", modelo: "Dimm Ddr3", qtd: "15" },
+            { produto: "Placa de Mãe", marca: "ASUS", modelo: "TUF Gaming", qtd: "10" },
         ];
 
         function popularTabela() {
@@ -62,11 +62,11 @@
             clientes.forEach((cliente) => {
                 const linha = `
                 <tr>
-                    <td>${cliente.nome}</td>
-                    <td>${cliente.cpf}</td>
-                    <td>${cliente.celular}</td>
-                    <td>${cliente.email}</td>
-                    <td><button class="btn-edit" onclick="editarCliente('${cliente.cpf}')">✏️</button></td>
+                    <td>${cliente.produto}</td>
+                    <td>${cliente.marca}</td>
+                    <td>${cliente.modelo}</td>
+                    <td>${cliente.qtd}</td>
+                    <td><button class="btn-edit" onclick="editarCliente('${cliente.produto}')">✏️</button></td>
                 </tr>
             `;
                 corpoTabela.innerHTML += linha;
@@ -74,8 +74,8 @@
         }
 
 
-        function editarCliente(cpf) {
-            alert("Editar cliente com CPF: " + cpf);
+        function editarCliente(prod) {
+            alert("Editar cliente com CPF: " + prod);
         }
 
 

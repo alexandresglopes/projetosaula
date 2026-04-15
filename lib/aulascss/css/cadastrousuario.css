@@ -16,7 +16,7 @@ body {
 
 .principal {
     width: 100%;
-    max-width: 650px;    
+    max-width: 650px;
     padding: 40px 30px;
     text-align: center;
     background-color: white;
@@ -42,7 +42,7 @@ img {
 h2 {
     font-size: 28px;
     font-weight: 600;
-    color: #4a4a4a;
+    color: #764ba2;
     margin-bottom: 10px;
 }
 

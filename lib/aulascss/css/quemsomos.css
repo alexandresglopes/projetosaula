@@ -43,7 +43,7 @@ body {
 
 .last-card:hover,
 .box:hover {
-    transform: translateY(-3px);    
+    transform: translateY(-3px);
 }
 
 .about-container {
@@ -112,11 +112,17 @@ body {
 
 .top {
     display: flex;
-    height: 50px;
+    height: 60px;
     background: white;
     align-items: center;
 }
 
-.top a {
+.top img {
     margin-left: 16px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }

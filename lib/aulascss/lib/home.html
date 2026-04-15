@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Aliança Tech</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/csshome.css">
+    <link rel="stylesheet" href="../bootstrap/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
 </head>
 
 <body>
@@ -14,7 +16,8 @@
     <nav class="navbar">
         <div class="nav-left">
             <!--button class="menu-toggle" onclick="toggleMenu()">☰</button-->
-            <a href="#" class="navbar-brand">DIG<span>TECH</span></a>
+            <img src="../img/logo.png" style="width: 40px;border-radius: 5px;"><a href="#"
+                class="navbar-brand">ALIANÇA<span>TECH</span></a>
         </div>
 
         <div class="user-info" style="display: flex; align-items: center; gap: 10px;">
@@ -28,33 +31,53 @@
             <a href="#" class="sidebar-item active">🏠 Dashboard</a>
             <a href="funcionarios.html" class="sidebar-item">👥 Funcionários</a>
             <a href="clientes.html" class="sidebar-item">👥 Clientes</a>
-            <a href="cadastroproduto.html" class="sidebar-item">📦 Produtos</a>
-            <a href="cadastroproduto.html" class="sidebar-item">📦 Serviços</a>
-            <a href="cadastroproduto.html" class="sidebar-item">📦 Categorias</a>
-            <a href="cadastroproduto.html" class="sidebar-item">📦 Parcerias</a>            
-            <!-- <a href="supermercado.html" class="sidebar-item">🛒 Supermerdo Master</a>
-            <a href="paletacores.html" class="sidebar-item">🌈 Paletas de Cores</a> -->
+            <a href="produtos.html" class="sidebar-item">📦 Produtos</a>
+            <a href="servicos.html" class="sidebar-item">🛠️ Serviços</a>
+            <!-- <a href="categorias.html" class="sidebar-item">🗂️ Categorias</a> -->
+            <a href="parcerias.html" class="sidebar-item">🤝 Parcerias</a>
 
             <a href="../index.html" class="sidebar-item" style="margin-top: auto; color: #ffbcbc;">🚪 Sair</a>
         </aside>
 
-        <main class="content">
+        <div class="content">
             <div class="welcome-card">
                 <h2>Painel Principal</h2>
                 <p>Gerencie sua empresa.</p>
 
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <span style="font-size: 24px; font-weight: 600; color: #667eea; display: block;">128</span>
-                        <span style="font-size: 13px; color: #888;">Produtos</span>
+                <div class="row" style="margin: 30px;">
+                    <div class="col-6">
+                        <div class="box">
+                            <span class="qtd">50</span>
+                            <span class="tipo">Clientes</span>
+                        </div>
                     </div>
-                    <div class="stat-box">
-                        <span style="font-size: 24px; font-weight: 600; color: #667eea; display: block;">45</span>
-                        <span style="font-size: 13px; color: #888;">Funcionários</span>
+                    <div class="col-6">
+                        <div class="box">
+                            <span class="qtd">60</span>
+                            <span class="tipo">Funcionários</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="box">
+                            <span class="qtd">128</span>
+                            <span class="tipo">Produtos</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="box">
+                            <span class="qtd">5</span>
+                            <span class="tipo">Serviços</span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="box">
+                            <span class="qtd">10</span>
+                            <span class="tipo">Parcerias</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     </div>
 
     <script>

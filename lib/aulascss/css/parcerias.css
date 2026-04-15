@@ -15,7 +15,7 @@ body {
     padding: 20px;
 }
 
-
+/**pc**/
 @media (min-width: 767px) {
     .principal {
         width: 80%;
@@ -29,7 +29,7 @@ body {
     }
 }
 
-
+/**cel**/
 @media (max-width: 768px) {
     .principal {
         width: 100%;
@@ -94,6 +94,7 @@ label {
 
 
 input[type="text"],
+input[type="email"],
 input[type="number"],
 input[type="file"] {
     width: 100%;
@@ -261,6 +262,7 @@ input:disabled {
     box-shadow: 0px 8px 15px rgba(102, 126, 234, 0.5);
 }
 
+
 .divtable {
     margin-top: 20px;
     overflow-x: auto;
@@ -340,4 +342,70 @@ input:disabled {
 .top a {
     text-decoration: none;
     font-size: 20px;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.partner-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 40px 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    cursor: pointer;
+}
+
+.partner-logo-wrapper {
+    width: 100px;
+    height: 100px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 40px;
+    filter: grayscale(100%);
+    transition: 0.5s;
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.partner-card:hover {
+    transform: scale(1.05);
+    background: white;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.partner-card:hover .partner-logo-wrapper {
+    filter: grayscale(0%);
+    transform: rotate(5deg);
+}
+
+.partner-name {
+    font-weight: 600;
+    color: #4a4a4a;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.partner-tag {
+    font-size: 12px;
+    color: #764ba2;
+    font-weight: 400;
+    background: #f1f3ff;
+    padding: 4px 12px;
+    border-radius: 15px;
+    margin-top: 8px;
 }

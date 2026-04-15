@@ -8,13 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
     <link rel="stylesheet" href="../css/cadastrousuario.css">
-    
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+
 </head>
 
 <body>
 
     <div class="principal">
-        <img src="../img/cadastro.png" alt="">
+        <!-- <img src="../img/cadastro.png" alt=""> -->
 
         <h2>Cadastro</h2>
         <p>Preencha o formulário para se cadastrar:</p>
@@ -31,7 +32,8 @@
                     <div class="col-6">
                         <div class="campo-input">
                             <label>Sobrenome</label>
-                            <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome" required>
+                            <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome"
+                                required>
                         </div>
                     </div>
                     <div class="col-6">
@@ -81,7 +83,7 @@
         function validaSenha(input) {
             let senha = document.getElementById('txtSenha').value;
             let confirma = input.value;
-            
+
             if (confirma !== senha) {
                 document.getElementById('confirmsenha').style.display = 'block';
                 input.setCustomValidity('As senhas não coincidem!');
@@ -99,7 +101,7 @@
             let senha = document.getElementById('txtSenha').value;
             let confirma = document.getElementById('txtConfirmarSenha').value;
 
-            
+
             if (senha === confirma) {
                 alert('Cadastro realizado com sucesso!');
                 window.location.href = "login.html";
