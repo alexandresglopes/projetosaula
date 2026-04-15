@@ -18,7 +18,7 @@ body {
 /**pc**/
 @media (min-width: 767px) {
     .principal {
-        width: 80%;
+        width: 72.5%;
         padding: 40px 30px;
         text-align: center;
         background-color: white;
@@ -26,6 +26,19 @@ body {
         border-radius: 5px;
         transition: all 0.4s ease;
         margin: 30px;
+    }
+
+    .top {
+        display: flex;
+        width: 65.9%;        
+        height: 60px;
+        background: white;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     }
 }
 
@@ -40,6 +53,19 @@ body {
         border-radius: 5px;
         transition: all 0.4s ease;
         margin: 0px;
+    }
+
+     .top {
+        display: flex;
+        width: 100%;        
+        height: 60px;
+        background: white;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     }
 }
 
@@ -325,19 +351,7 @@ input:disabled {
     }
 }
 
-.top {
-    display: flex;
-    width: 100%;
-    max-width: 1200px;
-    height: 60px;
-    background: white;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-}
+
 
 .top a {
     text-decoration: none;
@@ -346,7 +360,7 @@ input:disabled {
 
 .partners-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     width: 100%;
     max-width: 1100px;

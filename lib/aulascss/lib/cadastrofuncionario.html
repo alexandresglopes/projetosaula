@@ -15,17 +15,18 @@
 <body>
 
     <div class="top">
-        <a href="funcionarios.html" style="text-decoration: none; font-size: 24px;">⬅️</a>
+        <a href="home.html" style="text-decoration: none; font-size: 24px;">⬅️</a>
     </div>
 
     <div class="principal">
 
-        <img src="../img/func.png" alt="" class="icone-cadastro">
+        <img src="../img/funcionarios.jpeg" alt="" class="icone-cadastro">
 
         <h2>Cadastro de Funcionário:</h2>
         <p>Preencha os dados abaixo para salvar o funcionário:</p>
 
-        <form onsubmit="event.preventDefault(); salvarFuncionario();">
+        <!-- <form onsubmit="event.preventDefault(); salvarFuncionario();"> -->
+        <form>
             <div class="form-group">
                 <div class="row">
 
@@ -99,8 +100,17 @@
                     </div>
 
 
-                    <div class="col-12">
-                        <button type="submit" class="btn-salvar">CADASTRAR</button>
+                    <div class="col-4">
+                        <input type="submit" class="btn-salvar" name="insert" value="CADASTRAR"
+                            onclick="salvarFuncionario()">
+                    </div>
+                    <div class="col-4">
+                        <input type="submit" class="btn-salvar" name="update" value="EDITAR"
+                            onclick="editaruncionario()">
+                    </div>
+                    <div class="col-4">
+                        <input type="submit" class="btn-salvar" name="excluir" value="EXCLUIR"
+                            onclick="deleteFuncionario()">
                     </div>
                 </div>
             </div>
@@ -131,6 +141,7 @@
         }
 
         function salvarFuncionario() {
+
             const nome = document.getElementById('nome').value;
             const sobrenome = document.getElementById('sobrenome').value;
             const cpf = document.getElementById('cpf').value;
@@ -143,6 +154,26 @@
             if (sexo == 1) { s = 'Homem' } else { s = 'Mulher' }
 
             alert(`Sucesso!\nO Funcionário ${nome} ${sobrenome},\n CPF: ${cpf},\n RG: ${rg},\n Sexo: ${s},\n Salário: ${salario},\n Cargo: ${cargo}\n foi salvo com sucesso!`);
+
+            document.querySelector('form').reset();
+            document.getElementById('valorTotal').value = "0,00";
+            document.getElementById('previewImage').style.display = 'none';
+            document.getElementById('previewPlaceholder').style.display = 'block';
+        }
+
+        function editaruncionario() {
+            
+            alert('Editado com sucesso!');
+
+            document.querySelector('form').reset();
+            document.getElementById('valorTotal').value = "0,00";
+            document.getElementById('previewImage').style.display = 'none';
+            document.getElementById('previewPlaceholder').style.display = 'block';
+        }
+
+        function deleteFuncionario() {
+
+            alert('Excluido com sucesso!');
 
             document.querySelector('form').reset();
             document.getElementById('valorTotal').value = "0,00";

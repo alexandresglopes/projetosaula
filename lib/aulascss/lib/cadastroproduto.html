@@ -15,17 +15,18 @@
 <body>
 
     <div class="top">
-        <a href="produtos.html" style="text-decoration: none; font-size: 24px;">⬅️</a>
+        <a href="home.html" style="text-decoration: none; font-size: 24px;">⬅️</a>
     </div>
 
     <div class="principal">
 
-        <img src="../img/produto.png" alt="" class="icone-cadastro">
+        <img src="../img/produto1.png" alt="" class="icone-cadastro">
 
         <h2>Novo Produto</h2>
         <p>Preencha os dados abaixo para salvar no estoque:</p>
 
-        <form onsubmit="event.preventDefault(); salvarProduto();">
+        <!-- <form onsubmit="event.preventDefault(); salvarProduto();"> -->
+            <form>
             <div class="form-group">
                 <div class="row">
 
@@ -101,8 +102,17 @@
                         </div>
                     </div> -->
 
-                    <div class="col-12">
-                        <button type="submit" class="btn-salvar">Salvar Produto</button>
+                    <div class="col-4">
+                        <input type="submit" class="btn-salvar" name="insert" value="CADASTRAR"
+                            onclick="salvarFuncionario()">
+                    </div>
+                    <div class="col-4">
+                        <input type="submit" class="btn-salvar" name="update" value="EDITAR"
+                            onclick="editaruncionario()">
+                    </div>
+                    <div class="col-4">
+                        <input type="submit" class="btn-salvar" name="excluir" value="EXCLUIR"
+                            onclick="deleteFuncionario()">
                     </div>
                 </div>
             </div>
@@ -172,6 +182,24 @@
 
             document.querySelector('form').reset();
             //document.getElementById('valorTotal').value = "0,00";
+            document.getElementById('previewImage').style.display = 'none';
+            document.getElementById('previewPlaceholder').style.display = 'block';
+        }
+
+        function editaruncionario() {
+            
+            alert('Editado com sucesso!');
+
+            document.querySelector('form').reset();            
+            document.getElementById('previewImage').style.display = 'none';
+            document.getElementById('previewPlaceholder').style.display = 'block';
+        }
+
+        function deleteFuncionario() {
+
+            alert('Excluido com sucesso!');
+
+            document.querySelector('form').reset();            
             document.getElementById('previewImage').style.display = 'none';
             document.getElementById('previewPlaceholder').style.display = 'block';
         }

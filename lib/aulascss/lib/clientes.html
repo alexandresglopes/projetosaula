@@ -32,6 +32,7 @@
                         <th>Celular</th>
                         <th>E-mail</th>
                         <th></th>
+                        <th></th>                        
                     </tr>
                 </thead>
                 <tbody>
@@ -67,6 +68,7 @@
                     <td>${cliente.celular}</td>
                     <td>${cliente.email}</td>
                     <td><button class="btn-edit" onclick="editarCliente('${cliente.cpf}')">✏️</button></td>
+                    <td><button class="btn-edit" onclick="deleteCliente('${cliente.cpf}')">🗑️</button></td>
                 </tr>
             `;
                 corpoTabela.innerHTML += linha;
@@ -76,6 +78,10 @@
 
         function editarCliente(cpf) {
             alert("Editar cliente com CPF: " + cpf);
+        }
+
+        function deleteCliente(cpf) {
+            alert("Deseja realmente deletar? " + cpf);
         }
 
 

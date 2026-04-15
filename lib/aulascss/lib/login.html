@@ -22,12 +22,12 @@
         <form>
             <div class="campo-input">
                 <label>Usuário</label>
-                <input type="text" id="login" name="login" value="aluno@senai.com" placeholder="Digite seu usuário">
+                <input type="text" id="login" name="login" placeholder="Digite seu usuário">
             </div>
 
             <div class="campo-input">
                 <label>Senha</label>
-                <input type="password" id="senha" name="senha" value="123456789" placeholder="••••••••">
+                <input type="password" id="senha" name="senha" placeholder="••••••••">
             </div>
 
             <button type="button" class="btn-logar" onclick="navegar()">Acessar Sistema</button>
@@ -45,7 +45,16 @@
 
     <script>
         function navegar() {
-            window.location.href = "home.html";
+            let usuario = document.getElementById('login').value;
+            let senha = document.getElementById('senha').value;
+
+            if (usuario == 'aluno@senai.com' && senha == '123456') {
+                alert('Login efetuado com sucesso.\nSeja Bem Vindo!')
+                window.location.href = "home.html";
+            } else {
+                alert('Usuário ou senha invalido!');
+            }
+
         }
     </script>
 

@@ -18,7 +18,7 @@ body {
 /**pc**/
 @media (min-width: 767px) {
     .principal {
-        width: 80%;
+        width: 72.5%;
         padding: 40px 30px;
         text-align: center;
         background-color: white;
@@ -49,11 +49,12 @@ body {
 }
 
 .icone-cadastro {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto 20px;
     display: block;
     filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.1));
+    border-radius: 5px;
 }
 
 h2 {
