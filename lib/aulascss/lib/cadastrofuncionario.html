@@ -30,7 +30,7 @@
             <div class="form-group">
                 <div class="row">
 
-                    <div class="col-12">
+                    <!-- <div class="col-12">
                         <div class="preview-container">
                             <div class="image-preview" id="imagePreview">
                                 <img src="" alt="Preview da Imagem" id="previewImage">
@@ -47,7 +47,7 @@
                             <input type="file" id="imagemProduto" accept="image/*" onchange="exibirPreview(this)"
                                 required>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-6">
                         <div class="campo-input">
@@ -101,15 +101,15 @@
 
 
                     <div class="col-4">
-                        <input type="submit" class="btn-salvar" name="insert" value="CADASTRAR"
+                        <input type="button" class="btn-salvar" name="insert" value="CADASTRAR"
                             onclick="salvarFuncionario()">
                     </div>
                     <div class="col-4">
-                        <input type="submit" class="btn-salvar" name="update" value="EDITAR"
+                        <input type="button" class="btn-salvar" name="update" value="EDITAR"
                             onclick="editaruncionario()">
                     </div>
                     <div class="col-4">
-                        <input type="submit" class="btn-salvar" name="excluir" value="EXCLUIR"
+                        <input type="button" class="btn-salvar" name="excluir" value="EXCLUIR"
                             onclick="deleteFuncionario()">
                     </div>
                 </div>
@@ -157,8 +157,8 @@
 
             document.querySelector('form').reset();
             document.getElementById('valorTotal').value = "0,00";
-            document.getElementById('previewImage').style.display = 'none';
-            document.getElementById('previewPlaceholder').style.display = 'block';
+            // document.getElementById('previewImage').style.display = 'none';
+            // document.getElementById('previewPlaceholder').style.display = 'block';
         }
 
         function editaruncionario() {
@@ -167,8 +167,8 @@
 
             document.querySelector('form').reset();
             document.getElementById('valorTotal').value = "0,00";
-            document.getElementById('previewImage').style.display = 'none';
-            document.getElementById('previewPlaceholder').style.display = 'block';
+            // document.getElementById('previewImage').style.display = 'none';
+            // document.getElementById('previewPlaceholder').style.display = 'block';
         }
 
         function deleteFuncionario() {
@@ -177,8 +177,8 @@
 
             document.querySelector('form').reset();
             document.getElementById('valorTotal').value = "0,00";
-            document.getElementById('previewImage').style.display = 'none';
-            document.getElementById('previewPlaceholder').style.display = 'block';
+            // document.getElementById('previewImage').style.display = 'none';
+            // document.getElementById('previewPlaceholder').style.display = 'block';
         }
     </script>
 
