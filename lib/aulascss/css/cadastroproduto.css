@@ -2,11 +2,42 @@
      box-sizing: border-box;
      margin: 0;
      padding: 0;
-     font-family: 'Poppins', sans-serif;
+
+     font-family: "Uber Move Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+     /* font-family: "Uber Move Mono", "Courier New", Courier, monospace; */
+
+    }
+
+ /* @font-face {
+     font-family: 'Uber Move';
+     font-style: normal;
+     font-weight: 700;
+     src: local('Uber Move'), url('https://uber-common-public.s3-us-west-2.amazonaws.com/design-platform/UberMoveText-Regular.woff2') format('woff2');
+ } */
+
+ :root {
+
+     --cinzaescuro: #6B7588;
+     --cinzaclaro: #C7C9D9;
+     --cinzamedio: #8F90A6;
+     --dark: #3A3A3C;
+     --lilas: #764ba2;
+
+     /***tema atual*/
+     --azulclaro: #667eea;
+     --maincolor: #FA2408;
+
+     /*****BRAND COLORS****/
+     --darker: #CB2B16;
+     --ligther: #FB4E37;
+     --suble: #FDA69B;
+
  }
 
  body {
-     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+     background: linear-gradient(135deg, var(--darker) 0%, var(--ligther) 100%);
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -61,12 +92,12 @@
  h2 {
      font-size: 28px;
      font-weight: 600;
-     color: #4a4a4a;
+     color: var(--darker);
      margin-bottom: 10px;
  }
 
  p {
-     color: #888;
+     color: var(--ligther);
      font-size: 14px;
      margin-bottom: 30px;
  }
@@ -80,7 +111,7 @@
      display: block;
      font-size: 14px;
      font-weight: 600;
-     color: #667eea;
+     color: var(--darker);
      margin-bottom: 8px;
      margin-left: 15px;
  }
@@ -107,7 +138,7 @@
  }
 
  input:focus {
-     border-color: #667eea;
+     border-color: var(--maincolor);
      background-color: #fff;
      box-shadow: 0px 0px 10px rgba(102, 126, 234, 0.2);
  }
@@ -156,7 +187,7 @@
  .btn-salvar {
      width: 100%;
      padding: 15px;
-     background: linear-gradient(to right, #667eea, #764ba2);
+     background: linear-gradient(to top, var(--darker), var(--ligther));
      color: white;
      border: none;
      border-radius: 30px;
@@ -167,13 +198,14 @@
      transition: 0.3s;
      text-transform: uppercase;
      letter-spacing: 1px;
-     box-shadow: 0px 5px 15px rgba(102, 126, 234, 0.4);
+     box-shadow: 0px 5px 15px var(--suble);
+     font-family: "Uber Move Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
  }
 
  .btn-salvar:hover {
      transform: scale(1.03);
      filter: brightness(1.1);
-     box-shadow: 0px 8px 20px rgba(102, 126, 234, 0.6);
+     box-shadow: 0px 8px 20px var(--maincolor);
  }
 
  .footer-links {
@@ -188,7 +220,7 @@
  }
 
  .btncalcular {
-     background: linear-gradient(to right, #667eea, #764ba2);
+     background: linear-gradient(to right, var(--darker), var(--ligther));
      width: 50px;
      height: 50px;
      border-radius: 50%;
@@ -207,7 +239,7 @@
  .btncalcular:hover {
      transform: scale(1.1) rotate(10deg);
      filter: brightness(1.1);
-     box-shadow: 0px 8px 15px rgba(102, 126, 234, 0.5);
+     box-shadow: 0px 8px 15px var(--suble);
  }
 
  .btn-voltar {
@@ -216,7 +248,7 @@
      align-items: center;
      width: 50px;
      height: 50px;
-     background: linear-gradient(to right, #667eea, #764ba2);
+     background: linear-gradient(to right, var(--darker), var(--ligther));
      color: white;
      border: none;
      border-radius: 50%;
@@ -233,7 +265,7 @@
  .btn-voltar:hover {
      transform: scale(1.03);
      filter: brightness(1.1);
-     box-shadow: 0px 8px 20px rgba(102, 126, 234, 0.6);
+     box-shadow: 0px 8px 20px var(--suble);
  }
 
  .top {
@@ -255,3 +287,7 @@
      font-size: 20px;
  }
 
+ .iconvoltar {
+     color: var(--darker);
+
+ }
