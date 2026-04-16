@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="../bootstrap/bootstrap.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .modal-conteudo {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+            animation: zoom 0.3s ease;
+
+        }
+
+
+        .fechar {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+        @keyframes zoom {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .foto {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .foto:hover {
+            transform: scale(1.05);
+        }
+
+        .galeria-container {
+            width: 95%;
+            margin: 30px auto 30px auto;
+            
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="galeria-container">
+        <div class="row">
+            <div class="col-3">
+                <div class="foto">
+                    <img src="../img/img1.jpeg" onclick="abrirModal(this.src)" alt="Foto 1">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="foto">
+                    <img src="../img/img2.jpeg" onclick="abrirModal(this.src)" alt="Foto 2">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="foto">
+                    <img src="../img/img3.jpeg" onclick="abrirModal(this.src)" alt="Foto 2">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="foto">
+                    <img src="../img/img4.jpeg" onclick="abrirModal(this.src)" alt="Foto 2">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="meuModal" class="modal" onclick="fecharModal()">
+        <span class="fechar">&times;</span>
+        <img class="modal-conteudo" id="imgExpandida">
+    </div>
+
+    <script>
+        function abrirModal(src) {
+            const modal = document.getElementById("meuModal");
+            const imgModal = document.getElementById("imgExpandida");
+            modal.style.display = "flex";
+            imgModal.src = src;
+        }
+
+        function fecharModal() {
+            const modal = document.getElementById("meuModal");
+            modal.style.display = "none";
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === "Escape") {
+                fecharModal();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -55,12 +55,12 @@
                 <p>Gerencie sua empresa.</p> -->
 
                 <div class="galeria-container">
-                    <div class="foto"><img src="../img/img1.jpeg" alt="Exemplo 1"></div>
-                    <div class="foto"><img src="../img/img2.jpeg" alt="Exemplo 2"></div>
-                    <div class="foto"><img src="../img/img3.jpeg" alt="Exemplo 3"></div>
-                    <div class="foto"><img src="../img/img4.jpeg" alt="Exemplo 4"></div>
-                    <div class="foto"><img src="../img/img5.jpeg" alt="Exemplo 5"></div>
-                    <div class="foto"><img src="../img/img6.jpeg" alt="Exemplo 6"></div>
+                    <div class="foto"><img src="../img/img1.jpeg"  onclick="abrirModal(this.src)" alt="Exemplo 1"></div>
+                    <div class="foto"><img src="../img/img2.jpeg"  onclick="abrirModal(this.src)" alt="Exemplo 2"></div>
+                    <div class="foto"><img src="../img/img3.jpeg"  onclick="abrirModal(this.src)" alt="Exemplo 3"></div>
+                    <div class="foto"><img src="../img/img4.jpeg"  onclick="abrirModal(this.src)" alt="Exemplo 4"></div>
+                    <div class="foto"><img src="../img/img5.jpeg"  onclick="abrirModal(this.src)" alt="Exemplo 5"></div>
+                    <div class="foto"><img src="../img/img6.jpeg"  onclick="abrirModal(this.src)" alt="Exemplo 6"></div>
                 </div>
 
                 <!-- <div class="row" style="margin: 30px;">
@@ -105,6 +105,11 @@
         </div>
     </div>
 
+    <div id="meuModal" class="modal" onclick="fecharModal()">
+        <span class="fechar">&times;</span>
+        <img class="modal-conteudo" id="imgExpandida">
+    </div>
+
     <script>
         function toggleMenu() {
             const sidebar = document.getElementById('sidebar');
@@ -115,6 +120,25 @@
             const sidebar = document.getElementById('sidebar');
             if (sidebar.classList.contains('open')) {
                 sidebar.classList.remove('open');
+            }
+        });
+
+
+        function abrirModal(src) {
+            const modal = document.getElementById("meuModal");
+            const imgModal = document.getElementById("imgExpandida");
+            modal.style.display = "flex";
+            imgModal.src = src;
+        }
+
+        function fecharModal() {
+            const modal = document.getElementById("meuModal");
+            modal.style.display = "none";
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === "Escape") {
+                fecharModal();
             }
         });
     </script>
