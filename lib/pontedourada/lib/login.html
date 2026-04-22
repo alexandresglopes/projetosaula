@@ -22,12 +22,12 @@
             <form onsubmit="event.preventDefault(); login();">
                 <div class="campo-input">
                     <label>Login</label>
-                    <input type="text" name="email" placeholder="Digite seu E-mail" required>
+                    <input type="text" name="email" id="email" placeholder="Digite seu E-mail" required>
                 </div>
 
                 <div class="campo-input">
                     <label>Senha</label>
-                    <input type="password" name="senha" placeholder="Digite sua senha" required>
+                    <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
                 </div>
 
                 <button type="submit" class="btn-acessar" style="width: 100%; margin-top: 10px;">
@@ -49,12 +49,22 @@
 
     <script>
         function login() {
-            const email = document.getElementsByName('email')[0].value;
-            const senha = document.getElementsByName('senha')[0].value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
 
 
             console.log(email)
             console.log(senha)
+
+            if (email == 'admin' && senha == 'opec2026') {
+                alert('Login efetuado com sucesso.\nSeja Bem Vindo!\nAcesso de nivel ADM.');
+                window.location.href = "home.html";
+            } else if (email == 'operacional' && senha == 'opec2026') {
+                alert('Login efetuado com sucesso.\nSeja Bem Vindo!\nAcesso de nivel Operacional.');
+                window.location.href = "home.html";
+            } else {
+                alert('Email ou Usuários inválidos!');
+            }
         }
     </script>
 
