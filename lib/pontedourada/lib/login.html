@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponto Dourada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+</head>
+
+<body>
+
+    <div class="login-window">
+
+        <div class="login-content">
+            <div class="logo-apresentacao">
+                Ponte<span>Dourada</span>
+            </div>
+
+            <form onsubmit="event.preventDefault(); login();">
+                <div class="campo-input">
+                    <label>Login</label>
+                    <input type="text" name="email" placeholder="Digite seu E-mail" required>
+                </div>
+
+                <div class="campo-input">
+                    <label>Senha</label>
+                    <input type="password" name="senha" placeholder="Digite sua senha" required>
+                </div>
+
+                <button type="submit" class="btn-acessar" style="width: 100%; margin-top: 10px;">
+                    LOGAR
+                </button>
+            </form>
+
+            <div class="footer-links">Clique aqui para <a href="../index.html"><b> Voltar</b></a></div>
+        </div>
+
+    </div>
+
+    <div class="test-credentials">
+        <h4>Dados de Teste:</h4>
+        <p><strong><span><img src="../img/user.png"> </span> Gestor:</strong> admin / opec2026</p>
+        <p><strong><span><img src="../img/user.png"> </span> Atendente:</strong> operacional / opec2026</p>
+    </div>
+
+
+    <script>
+        function login() {
+            const email = document.getElementsByName('email')[0].value;
+            const senha = document.getElementsByName('senha')[0].value;
+
+
+            console.log(email)
+            console.log(senha)
+        }
+    </script>
+
+</body>
+
+</html>
