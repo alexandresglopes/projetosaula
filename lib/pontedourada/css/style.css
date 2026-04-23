@@ -93,6 +93,27 @@ p {
     }
 }
 
+.logo-apresentacao-home,
+.logo-apresentacao {
+    display: inline-block;
+    background-color: var(--ponte-primaria);
+    color: var(--branco);
+    font-weight: 300;
+    padding: 20px 40px;
+    letter-spacing: -1px;
+    box-sizing: border-box;
+}
+
+.logo-apresentacao-home {
+    margin-top: 20px;
+}
+
+.logo-apresentacao span {
+    color: var(--branco);
+    font-weight: 600;
+}
+
+
 @media (max-width: 768px) {
     h1 {
         font-size: 1.8rem;
@@ -113,38 +134,17 @@ p {
         margin: 30px auto;
     }
 
+    .logo-apresentacao-home,
     .logo-apresentacao {
-        display: inline-block;
-        background-color: var(--ponte-primaria);
-        color: var(--branco);
         font-size: 30px;
-        font-weight: 300;
-        padding: 20px 40px;
-        margin-bottom: 20px;
-        letter-spacing: -1px;
-        width: 95%;
-    }
-
-    .logo-apresentacao span {
-        color: var(--branco);
-        font-weight: 600;
+        width: 100%;
+        text-align: center;
+        padding: 15px 20px;
     }
 
     .test-credentials {
         margin-top: 1rem;
         padding: 0.75rem;
-    }
-
-    .logo-apresentacao-home {
-        display: inline-block;
-        background-color: var(--ponte-primaria);
-        color: var(--branco);
-        font-size: 35px;
-        font-weight: 300;
-        padding: 20px 40px;
-        margin: 20px auto;
-        letter-spacing: -1px;
-        width: 90%;
     }
 
     .bloco-icon {
@@ -167,31 +167,13 @@ p {
     }
 
     .logo-apresentacao {
-        display: inline-block;
-        background-color: var(--ponte-primaria);
-        color: var(--branco);
         font-size: 50px;
-        font-weight: 300;
-        padding: 20px 40px;
-        margin-bottom: 20px;
-        letter-spacing: -1px;
-    }
-
-    .logo-apresentacao span {
-        color: var(--branco);
-        font-weight: 600;
     }
 
     .logo-apresentacao-home {
-        display: inline-block;
-        background-color: var(--ponte-primaria);
-        color: var(--branco);
         font-size: 50px;
-        font-weight: 300;
-        padding: 20px 40px;
-        margin: 20px auto;
-        letter-spacing: -1px;
         width: 60%;
+
     }
 
     .bloco-icon {
