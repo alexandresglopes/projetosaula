@@ -11,17 +11,23 @@
     --sombra: 0px 10px 30px rgba(203, 43, 22, 0.2);
 }
 
+@font-face {
+    font-family: 'Uber';    
+    src: url('fonts/UberMoveMedium.otf') format('opentype');    
+}
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;    
 }
 
 body {
     background-color: var(--branco);
     color: var(--texto);
     overflow-x: hidden;
+    /* font-family: 'Uber', sans-serif; */
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -140,6 +146,7 @@ p {
         width: 100%;
         text-align: center;
         padding: 15px 20px;
+        font-family: 'Uber';
     }
 
     .test-credentials {
