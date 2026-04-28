@@ -458,6 +458,9 @@ textarea:focus {
     font-size: 14px;
     text-decoration: none;
     margin-top: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-logout:hover {

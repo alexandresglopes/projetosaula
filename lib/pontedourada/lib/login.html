@@ -42,12 +42,23 @@
 
     <div class="test-credentials">
         <h4>Dados de Teste:</h4>
-        <p><strong><span><img src="../img/user.png"> </span> Gestor:</strong> admin / opec2026</p>
-        <p><strong><span><img src="../img/user.png"> </span> Atendente:</strong> operacional / opec2026</p>
+        <p onclick="setlogin(1)" style="cursor: pointer;"><strong><span><img src="../img/user.png"> </span>
+                Gestor:</strong> admin / opec2026</p>
+        <p onclick="setlogin(2)" style="cursor: pointer;"><strong><span><img src="../img/user.png"> </span>
+                Atendente:</strong> operacional / opec2026</p>
     </div>
 
 
     <script>
+        function setlogin(i) {
+            if (i == 1) {
+                document.getElementById('email').value = 'admin';
+                document.getElementById('senha').value = 'opec2026';
+            } else {
+                document.getElementById('email').value = 'operacional';
+                document.getElementById('senha').value = 'opec2026';
+            }
+        }
         function login() {
             const email = document.getElementById('email').value;
             const senha = document.getElementById('senha').value;
@@ -56,14 +67,20 @@
             console.log(email)
             console.log(senha)
 
+
             if (email == 'admin' && senha == 'opec2026') {
+                localStorage.setItem("perfil", '1');
+                localStorage.setItem("usuario", 'GESTOR');
                 alert('Login efetuado com sucesso.\nSeja Bem Vindo!\nAcesso de nivel ADM.');
                 window.location.href = "home.html";
             } else if (email == 'operacional' && senha == 'opec2026') {
+                localStorage.setItem("perfil", '2');
+                localStorage.setItem("usuario", 'OPERACIONAL');
                 alert('Login efetuado com sucesso.\nSeja Bem Vindo!\nAcesso de nivel Operacional.');
                 window.location.href = "home.html";
             } else {
                 alert('Email ou Usuários inválidos!');
+                document.querySelector('form').reset();
             }
         }
     </script>

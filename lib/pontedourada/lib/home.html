@@ -8,15 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" type="image/x-icon" href="../img/logo.png">
+    <script src="../js/session.js"></script>
 </head>
 
 <body>
 
     <header class="top-bar">
         <div class="user-info">
-            Olá, <span id="userRole"><b>GESTOR</b> / Atendimento</span>
+            Olá, <span>
+                <spna id="user"><b>GESTOR</b></spna> / Atendimento
+            </span>
         </div>
-        <div class="profile-icon">A</div>
+        <div class="profile-icon" onclick="logout()" style="cursor: pointer;">X</div>
     </header>
 
     <main class="home-container">
@@ -28,40 +31,47 @@
 
         <div class="modules-grid">
 
-            <a href="produtos.html" class="module-card">
+            <a href="produtos.html" class="module-card" data-perfil="1">
                 <span class="module-icon">📦</span>
                 <span class="module-name">PRODUTOS</span>
             </a>
 
-            <a href="servicos.html" class="module-card">
+            <a href="servicos.html" class="module-card" data-perfil="1,2">
                 <span class="module-icon">🔧</span>
                 <span class="module-name">SERVIÇOS</span>
             </a>
 
-            <a href="agendamentos.html" class="module-card">
+            <a href="agendamentos.html" class="module-card" data-perfil="1,2">
                 <span class="module-icon">📅</span>
                 <span class="module-name">AGENDAMENTOS</span>
             </a>
 
-            <a href="fornecedores.html" class="module-card">
+            <a href="fornecedores.html" class="module-card" data-perfil="1">
                 <span class="module-icon">🏭</span>
                 <span class="module-name">FORNECEDORES</span>
             </a>
 
-            <a href="profissionais.html" class="module-card">
+            <a href="profissionais.html" class="module-card" data-perfil="1">
                 <span class="module-icon">👩‍⚕️</span>
                 <span class="module-name">PROFISSIONAIS</span>
             </a>
 
-            <a href="clientes.html" class="module-card">
+            <a href="clientes.html" class="module-card" data-perfil="1,2">
                 <span class="module-icon">👥</span>
                 <span class="module-name">CLIENTES</span>
             </a>
 
         </div>
 
-        <a href="../index.html" class="btn-logout">Sair do Sistema</a>
+        <!-- <button class="btn-logout" onclick="logout()">Sair do Sistema</button> -->
     </main>
+
+    <script>
+        function logout() {
+            localStorage.clear();
+            window.location.href = "../index.html";
+        }
+    </script>
 
 </body>
 
