@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Paraiso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="shortcut icon" href="../img/logo-hotel-paraiso.png" type="image/x-icon">
+    <script src="../js/script.js"></script>    
+</head>
+
+<body>
+
+    <header class="top-bar">
+        <div class="nav-left">
+            <a href="../index.html" class="btn-voltar-seta">⬅ Voltar</a>
+        </div>
+    </header>
+
+    <main class="container-cadastro">
+        <div class="card-formulario">
+            <div class="divimgform"><img src="../img/logo-hotel-paraiso.png"></div>
+
+            <h2>Reservas de Quartos</h2>
+            <p>Insira as informações do novo item abaixo:</p>
+
+            <!-- <form onsubmit="event.preventDefault(); salvarProduto();"> -->
+            <form>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="campo-input">
+                            <label>Nome completo</label>
+                            <input type="text" id="nome" placeholder="..." required>
+                        </div>
+                    </div>                    
+                    <div class="col-4">
+                        <div class="campo-input">
+                            <label>Tefefone</label>
+                            <input type="text" id="telefone" oninput="mascaraCelular(this)"
+                                placeholder="(00) 00000-0000" required>
+                        </div>
+                    </div>                                 
+                    <div class="col-4">
+                        <div class="campo-input">
+                            <label>Tipo de Quarto</label>
+                            <select id="tipoq" required>
+                                <option value="Quarto Luxo">Quarto Luxo</option>
+                                <option value="Quarto Casal">Quarto Casal</option>
+                                <option value="Suíte Master">Suíte Master</option>                                
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="campo-input">
+                            <label>Quantidade de hóspedes</label>
+                            <input type="number" id="qtd" placeholder="..." required>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <hr>
+                    </div>
+                    <div class="col-12">
+                        <h3>Período de estadia</h3>
+                    </div>
+                    <div class="col-6">
+                        <div class="campo-input">
+                            <label>Data Entrada</label>
+                            <input type="date" id="datae" placeholder="..." required>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="campo-input">
+                            <label>Data Saída</label>
+                            <input type="date" id="datas" placeholder="..." required>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <hr>
+                    </div>
+                    <div class="col-12">
+                        <h3>Forma de pagamento</h3>
+                    </div>
+                    <div class="col-4">
+                        <div class="campo-input">
+                            <label>Forma PG</label>
+                            <select id="pg" required>
+                                <option value="PIX">PIX</option>
+                                <option value="Cartão">Cartão</option>
+                                <option value="Dinheiro">Dinheiro</option>                                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <hr>
+                    </div>
+                    <div class="col-12">
+                        <h3>Necessidade Especial?</h3>
+                    </div>
+                    <div class="col-4">
+                        <div class="campo-input">
+                            <label>Necessidade</label>
+                            <select id="especial" required>
+                                <option value="NÃO">NÃO</option>
+                                <option value="SIM">SIM</option>                                                      
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <hr>
+                    </div>
+                    <div class="col-12">
+                        <h3>Observações</h3>
+                    </div>
+                    <div class="col-12">
+                        <div class="campo-input">
+                            <label>Observação</label>
+                            <textarea type="text" id="observacao" cols="10" rows="5" placeholder="..."
+                                required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="button" class="btn-acessar" onclick="limpar()"
+                            style="width: 100%; margin-top: 20px;">
+                            LIMPAR
+                        </button>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn-acessar" onclick="salvar()"
+                            style="width: 100%; margin-top: 20px;">
+                            CADASTRAR
+                        </button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function salvar() {
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const tipoq = document.getElementById('tipoq').value;
+            const qtd = document.getElementById('qtd').value;
+            const datae = document.getElementById('datae').value;
+            const datas = document.getElementById('datas').value;
+            const pg = document.getElementById('pg').value;
+            const especial = document.getElementById('especial').value;            
+            const observacao = document.getElementById('observacao').value;
+
+            
+
+            alert(`Hotel Paraiso!\nNome: ${nome}\nTefefone: ${telefone}\nTipo Quarto: ${tipoq}\nQtd Hóspedes: ${qtd}\nData Entrada.: ${datae}\nData Saída.: ${datas}\nForma PG: ${pg}\nNecessidade: ${especial}\nObservação: ${observacao}\nReserva feita com sucesso!`);
+            document.querySelector('form').reset();
+            //window.location.href = '../index.html';
+        }
+
+        function limpar() {
+            alert('Dados deletados com sucessos.')
+            document.querySelector('form').reset();
+        }
+    </script>
+
+</body>
+
+</html>

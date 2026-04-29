@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Paraiso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="shortcut icon" href="../img/logo-hotel-paraiso.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="topo">
+        <nav class="menu">
+            <div class="container nav-menu">
+                <div class="btnvolta"><a href="../index.html" class="btn-voltar-seta">⬅ Voltar</a></div>
+            </div>
+        </nav>
+    </header>
+    <div class="subtopo">
+        <h2>Quartos</h2>
+    </div>
+
+    <main class="conteudo">
+        <div class="cards">
+            <div class="row">
+                <div class="col-4">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image5.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Quarto Luxo</label><br>
+                        <label class="labelitemsuccess">Disponível</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image6.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Quarto Casal</label><br>
+                        <label class="labelitemsuccess">Disponível</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image2.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Quarto Sol</label><br>
+                        <label class="labelitemsuccess">Disponível</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image9.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Quarto Mar</label><br>
+                        <label class="labelitemsuccess">Disponível</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image8.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Suíte Família</label><br>
+                        <label class="labelitemsuccess">Disponível</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image5.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Quarto Econômico</label><br>
+                        <label class="labelitemsuccess">Disponível</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image6.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Suíte Master</label><br>
+                        <label class="labelitemsuccess">Disponível</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image2.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Quarto Jardim</label><br>
+                        <label class="labelitemsuccess">Disponível</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image9.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Quarto Premium</label><br>
+                        <label class="labelitemsuccess">Disponível</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image8.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Chalé Paraíso</label><br>
+                        <label class="labelitemsuccess">Disponível</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <div id="meuModal" class="modal" onclick="fecharModal()">
+        <span class="fechar">&times;</span>
+        <img class="modal-conteudo" id="imgExpandida">
+    </div>
+
+    <script>
+        function abrirModal(src) {
+            const modal = document.getElementById("meuModal");
+            const imgModal = document.getElementById("imgExpandida");
+            modal.style.display = "flex";
+            imgModal.src = src;
+        }
+
+        function fecharModal() {
+            const modal = document.getElementById("meuModal");
+            modal.style.display = "none";
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === "Escape") {
+                fecharModal();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

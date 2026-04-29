@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Paraiso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="shortcut icon" href="../img/logo-hotel-paraiso.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="topo">
+        <nav class="menu">
+            <div class="container nav-menu">
+                <div class="btnvolta"><a href="../index.html" class="btn-voltar-seta">⬅ Voltar</a></div>
+            </div>
+        </nav>
+    </header>
+    <div class="subtopo">
+        <h2>Galeria</h2>
+    </div>
+
+    <main class="conteudo">
+        <div class="cards">
+            <div class="row">
+                <div class="col-4">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image3.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Jardim</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image4.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Piscina</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image10.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Piscina</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image11.png" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Recepção</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image13.jpeg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Praia</label>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image14.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Ilhas</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image1.jpg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Restaurante</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item">
+                        <div class="foto"><img src="../img/image12.jpeg" onclick="abrirModal(this.src)" class="imgitem">
+                        </div>
+                        <label class="labelitem">Área de lazer</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <div id="meuModal" class="modal" onclick="fecharModal()">
+        <span class="fechar">&times;</span>
+        <img class="modal-conteudo" id="imgExpandida">
+    </div>
+
+    <script>
+        function abrirModal(src) {
+            const modal = document.getElementById("meuModal");
+            const imgModal = document.getElementById("imgExpandida");
+            modal.style.display = "flex";
+            imgModal.src = src;
+        }
+
+        function fecharModal() {
+            const modal = document.getElementById("meuModal");
+            modal.style.display = "none";
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === "Escape") {
+                fecharModal();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

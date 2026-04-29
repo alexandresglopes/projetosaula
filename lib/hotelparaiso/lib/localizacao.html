@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Paraiso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">    
+    <link rel="stylesheet" href="../css/localizacao.css">
+    <link rel="shortcut icon" href="../img/logo-hotel-paraiso.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <main class="content">
+        <div class="contact-wrapper">
+
+            <div class="contact-info">
+                <h1>Fale Conosco</h1>
+                <p>Tem alguma dúvida ou projeto em mente? Nossa equipe está pronta para te atender.</p>
+
+                <div style="margin-top: 20px; font-size: 14px; opacity: 0.9;">
+                    <p>📍 Rua Gerbert Périssé, 1341 - Geribá, Búzios – RJ</p>
+                    <p>📞 (21) 2222-2222</p>
+                    <p>✉️ contato@hotalparaiso.com.br</p>
+
+                    <div class="social-links"
+                        style="margin-top: 20px; display: flex; gap: 15px; justify-content: left;">
+                        <a href="https://instagram.com" target="_blank" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://x.com" target="_blank" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="social-icon"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/5521983069734" target="_blank" class="social-icon"><i
+                                class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="map-container card-glass">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.6477719164495!2d41.91497668828492!3d22.778449333212468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96ffe42a4e183d%3A0x7b2f80946f1
+a3d82!2zUnVhIEdlcmJlcnQgUMOpcmlzc8OpLCAxMzQxIC0gR2VyaWJhLCBBcm1hw6fDo28gZG9zIELDunppb3MgLSBSSi
+wgMjg5NTAtMDAw!5e0!3m2!1spt-BR!2sbr!4v1777319556983!5m2!1spt-BR!2sbr" width="600" height="450"
+style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+
+                <a href="../index.html"
+                    style="color: #427ab5; margin-top: 20px; text-decoration: none; font-size: 13px;">← Voltar para
+                    Inicial</a>
+            </div>
+
+            <div class="form-contact">
+                <form onsubmit="event.preventDefault(); mensagem();">
+                    <div class="input-group">
+                        <label>Nome Completo</label>
+                        <input type="text" placeholder="Seu nome" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" placeholder="seuemail@contato.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Mensagem</label>
+                        <textarea rows="4" placeholder="Como podemos ajudar?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function mensagem() {
+            alert('Mensagem enviada com sucesso!');
+            document.querySelector('form').reset();
+        }
+    </script>
+
+</body>
+
+</html>
