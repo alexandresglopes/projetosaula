@@ -27,8 +27,7 @@
             <h2>Reservas de Quartos</h2>
             <p>Insira as informações do novo item abaixo:</p>
 
-            <!-- <form onsubmit="event.preventDefault(); salvarProduto();"> -->
-            <form>
+            <form onsubmit="event.preventDefault(); salvarProduto();">            
 
                 <div class="row">
                     <div class="col-12">
@@ -133,7 +132,7 @@
                         </button>
                     </div>
                     <div class="col-6">
-                        <button type="button" class="btn-acessar" onclick="salvar()"
+                        <button type="submit" class="btn-acessar" 
                             style="width: 100%; margin-top: 20px;">
                             CADASTRAR
                         </button>
